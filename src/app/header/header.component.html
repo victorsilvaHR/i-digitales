@@ -1,0 +1,37 @@
+<div *ngIf="validarSesion()">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" (click)="navbar()"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" [class.d-none]="isCollapsed">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/invitacion" routerLinkActive="active">Invitación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/eventos" routerLinkActive="active">Eventos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/usuarios" routerLinkActive="active">Usuarios</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="d-flex flex-column align-items-end ms-auto">
+          <p class="Bienvenido mb-1">¡Bienvenido!  {{nombre}}</p>
+          <button class="btn btn-danger btn-sm" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+  

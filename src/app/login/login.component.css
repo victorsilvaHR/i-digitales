@@ -1,0 +1,112 @@
+.body-login {
+    height: 90vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2rem;
+  }
+  .login {
+      background-color: #cadffb;
+      border-radius: 5px;
+      height: 20rem;
+      width: 20rem;
+      margin: 10rem auto;
+      padding: 1rem;
+      box-shadow: 0 0 6px 3px gray;
+      }
+    .header {
+      text-align: center;
+    }
+  
+    .header-login {
+      background-color: #be82c5;
+      color: white;
+      border-bottom: gray 2px solid;
+      box-shadow: 0px 6px 6px gray;
+      width: 100vw;
+    }
+    .login-form {
+      margin: 1rem 0;
+    }
+    .btn-primary { 
+      background-color: #002e5d;
+      border: #002e5d 1px solid;
+    }
+    .btn-primary:hover {
+      background-color: #1C4C96;
+      /* border: whitesmoke 1px solid; */
+      /* box-shadow: 0 0 6px 3px #1C4C96; */
+    }
+  .ver {
+      margin: auto;
+      border: #1C4C96 2px solid;
+      border-radius: 0 5px 5px 0;
+      padding: 5px;
+      cursor: pointer;
+      color: #1489fd;
+  }
+  .titulo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: -5em;
+    font-size: 5rem;
+  }
+  .larp {
+    height: 6.3em;
+  }
+  .err-message {
+      text-align: center;
+      color: red;
+      font-weight: 500;
+  }
+  .text-light {
+    color: #002e5d !important;
+    margin: 5px auto;
+  }
+  .footer {
+    display: none; 
+  }
+  .movil{
+    display: none;
+  }
+  
+  
+  @media (max-width: 767px) {
+  .header-login {
+         background-color: #002e5d; 
+         color: white;
+         border-bottom: red 2px solid; 
+         padding-top: 20px; 
+         text-align: center;
+         position: fixed; 
+         top: 0; 
+         left: 0; 
+         z-index: 1000;
+     }
+     .texto-movil {
+         font-size: 43px;
+         margin: auto;
+         padding: 16px; 
+     }
+     .larp {
+           display: none;    
+     }
+     .footer {
+       text-align: center; 
+       background-color: #f0f0f0; 
+       padding: 20px 0; 
+       display: flex !important; 
+     }
+     .footer-image {
+       width: 100%; 
+       height: auto; 
+       max-height: 6em; 
+     }
+     .desktop{
+     display: none;
+     }
+     .movil {
+      display: block;
+     }
+     }

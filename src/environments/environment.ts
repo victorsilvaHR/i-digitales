@@ -1,16 +1,29 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
-};
+  production: false,
+  firebaseConfig : {
+      apiKey: "AIzaSyBc06CorvbFABhcrHlddSDMPpcTYrCuP-g",
+      authDomain: "invitaciones-31afc.firebaseapp.com",
+      projectId: "invitaciones-31afc",
+      storageBucket: "invitaciones-31afc.appspot.com",
+      messagingSenderId: "982893423890",
+      appId: "1:982893423890:web:10d03c4333a999539e97cb",
+      measurementId: "G-VZPYJWD9DL"
+    },
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+  dev: "https://solu-tec.net/invitaciones/",
+  endpoints: {
+    query: 'query.php',
+    postUser: 'createUser.php',
+    postEvento: 'createEvento.php',
+    postInvitaciones:'createInvitacion.php',
+    custom: 'queryCustom.php',
+    
+},
+auth:"aG9sYSBlc3RvIGVzIHVuYSBjYWJlY2VyIHBhcmEgc2VyIG1hcyBzZWd1cm8gZWwgZW5wb2ludA==", 
+def: 'Mexico123'
+  };
+  
+  
+  // firebase login
+  // firebase init
+  // firebase deploy

@@ -1,0 +1,49 @@
+
+
+<div class="body-login">
+    <div class="row login custom-font">
+      <form [formGroup]="loginForm" (ngSubmit)="sendCredentials()">
+        <div class="login-form">
+          <label for="email">Usuario</label>
+          <input formControlName="email" type="email" class="form-control" id="email" placeholder="correo@mail.com"
+                 (change)="campoVacio = false" (blur)="campoVacio = loginForm.get('email')?.value === ''">
+        </div>
+  
+        <label for="password">Contraseña</label>
+        <div class="input-group mb-3">
+          <input formControlName="password" [type]="mostrarPassword ? 'text' : 'password'" class="form-control" id="password"
+                 placeholder="Contraseña" aria-label="Recipient's username" aria-describedby="basic-addon2"
+                 (change)="campoVacio = false" (blur)="campoVacio = loginForm.get('password')?.value === ''">
+          <div class="desktop" (mousedown)="showPass()" (mouseup)="showPass()">
+            <span *ngIf="mostrarPassword" class="material-symbols-outlined ver">
+              visibility_off
+            </span>
+            <span *ngIf="!mostrarPassword" class="material-symbols-outlined ver">
+              visibility
+            </span>
+          </div>
+  
+          <div class="movil" (click)="showPass()">
+            <span *ngIf="mostrarPassword" class="material-symbols-outlined ver">
+              visibility_off
+            </span>
+            <span *ngIf="!mostrarPassword" class="material-symbols-outlined ver">
+              visibility
+            </span>
+          </div>
+        </div>
+  
+        <div class="login-form">
+          <button type="submit" class="btn btn-primary col-12" [disabled]="showSpiner">Login</button>
+        </div>
+      </form>
+      <div *ngIf="showSpiner" class="spinner-border text-light" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <label *ngIf="badCredentials" class="err-message">Usuario y/o password incorrecto</label>
+      <label *ngIf="campoVacio" class="err-message">Completa los campos para continuar</label>
+    </div>
+  </div>
+  
+  
+  

@@ -1,0 +1,49 @@
+.titulo {
+    background-color: #be82c5;
+    height: 4.5em;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100%; 
+    border-bottom: grey 2px solid;
+    box-shadow: 0px 4px 5px gray;
+    z-index: 5;
+}
+.subtitulo {
+    margin-left: 1em;
+}
+.Bienvenido {
+    margin-right: 1em;
+}
+.fondo {
+    background-color: #e9ecef;
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+
+}
+.container {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.subtitulo2 {
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+    margin: 15px;
+    margin-left: 20em;
+}
+.nav-link.active {
+    background-color: #6694de; 
+    color: white; 
+  }
+  
