@@ -5,22 +5,20 @@ import { InvitacionComponent } from './invitacion/invitacion.component';
 import { RegistroComponent } from './registro/registro.component';
 import { EventoComponent } from './evento/evento.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
-import { CountdownComponent } from './countdown/countdown.component';
 import { DemoComponent } from './demo/demo.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './servicios/guard.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
-  { path:'invitacion', component: InvitacionComponent },
-  { path:'registro', component: RegistroComponent },
-  { path:'eventos', component: EventoComponent },
-  { path:'usuarios', component: UsuariosComponent },
-  {path: 'countdown',component: CountdownComponent},
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path:'invitacion', component: InvitacionComponent ,  canActivate: [AuthGuard] },
+  { path:'registro', component: RegistroComponent , canActivate: [AuthGuard]  },
+  { path:'eventos', component: EventoComponent , canActivate: [AuthGuard]  },
+  { path:'usuarios', component: UsuariosComponent ,  canActivate: [AuthGuard] },
   {path:'demo', component: DemoComponent},
-  { path:'', component: LoginComponent },
-  { path:'**', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: '/login' }
+  { path:'login', component: LoginComponent},
+  {path:'**', component: LoginComponent},
+
 ];
 
 

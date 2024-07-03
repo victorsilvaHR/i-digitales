@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
   
       app = initializeApp(environment.firebaseConfig);
       private auth = getAuth();
+      private isLoggedIn = false;
       newUid = '';
   
         async singIn(email: string, password: string): Promise<any> {
@@ -46,4 +47,14 @@ import { environment } from 'src/environments/environment';
               console.log('Error de Logout', error);
             });
       }
+      loginUser() {
+        this.isLoggedIn = true;
+
+      }
+     logOutUser(){
+      this.isLoggedIn = false;
+     }
+     getIsLoged (){
+      return this.isLoggedIn;
+     }
   }

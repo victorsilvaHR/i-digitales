@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   }
   cerrarSesion(){
     this.userService.logOut();
+    this.userService.logOutUser();
    }
    consulta(){
     this.dataService.consulta();
