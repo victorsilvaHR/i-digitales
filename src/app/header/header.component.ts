@@ -10,6 +10,7 @@ import { DataService } from '../servicios/db.service';
 export class HeaderComponent implements OnInit {
   nombre = ''
   isCollapsed: boolean = false;
+  
 
 
   constructor(
