@@ -1,1 +1,77 @@
-<p>usuarios works!</p>
+
+<div class="container" (keydown.enter)="crear()">
+    <p class="negrita">Crear Usuario</p>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Nombre</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" placeholder="Nombre" aria-describedby="inputGroup-sizing-default"
+            [(ngModel)]="newUser.nombreUser">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Tipo de fiesta</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" placeholder="Evento" aria-describedby="inputGroup-sizing-default"
+            [(ngModel)]="newUser.nombreFiesta">
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" placeholder="Email" aria-describedby="inputGroup-sizing-default"
+              [(ngModel)]="newUser.email" (input)="validar($event)">
+          </div>
+          <div *ngIf="emailError" class="text-danger">
+            ingresa email correcto.
+          </div>
+        </div>
+  
+        <div class="col-md-6">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default">Telefono</span>
+            </div>
+            <input type="number" class="form-control" aria-label="Default" placeholder="Telefono" aria-describedby="inputGroup-sizing-default" 
+             [(ngModel)]="newUser.telefono" 
+             (input)="onInput($event)">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="d-grid d-md-flex justify-content-md-end">
+            <button class="btn btn-info" type="button" (click)="crear()">Crear</button>
+          </div>
+        </div>
+       <div *ngIf="error" class="alert alert-danger mt-3">
+          Todos los campos son obligatorios.
+        </div>
+  </div>
+   <table class="table table-striped container">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Tipo de fiesta</th>
+          <th scope="col">Mail</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of resultQuery">
+          <td>{{fila.nombre}}</td>
+          <td>{{fila.nombreFiesta}}</td>
+          <td>{{fila.email}}</td>
+          <td>{{fila.telefono}}</td>
+        </tr>
+      </tbody>
+    </table>
+    

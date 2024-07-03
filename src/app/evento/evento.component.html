@@ -1,1 +1,79 @@
-<p>evento works!</p>
+<div class="registro container"(keydown.enter)="crear()">
+    <p class="negrita">Crear Evento</p>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">ID</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="ID Evento" aria-describedby="inputGroup-sizing-default"
+          [(ngModel)]="evento.idEvento">
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Evento</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="Evento" aria-describedby="inputGroup-sizing-default" 
+          [(ngModel)]="evento.nombre_evento">
+        </div>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="Email" aria-describedby="inputGroup-sizing-default"
+            [(ngModel)]="evento.email" (input)="validar($event)">
+        </div>
+        <div *ngIf="emailError" class="text-danger">
+          ingeesa email correcto.
+        </div>
+      </div>
+    
+      
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Fecha de Vigencia</span>
+          </div>
+          <input type="date" class="form-control" aria-label="Default" placeholder="Fecha de Vigencia" aria-describedby="inputGroup-sizing-default"
+          [(ngModel)]="evento.vigencia">
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="d-grid d-md-flex justify-content-md-end">
+          <button class="btn btn-info" type="button" (click)="crear()">Crear</button>
+        </div>
+      </div>
+
+    <div *ngIf="error" class="alert alert-danger mt-3">
+      Todos los campos son obligatorios.
+    </div>
+
+    <table class="table table-striped container">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Evento</th>
+          <th scope="col">Mail</th>
+          <th scope="col">vigencia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of resultQuery">
+          <td>{{fila.idEvento}}</td>
+          <td>{{fila.nombre_evento}}</td>
+          <td>{{fila.email}}</td>
+          <td>{{fila.vigencia}}</td>
+        </tr>
+      </tbody>
+    </table>
+    

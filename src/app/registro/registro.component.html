@@ -1,1 +1,26 @@
-<p>registro works!</p>
+<table class="table table-striped container">
+    <thead class="text-center"> <!-- Utilizamos la clase text-center de Bootstrap -->
+      <tr>
+        <th scope="col" colspan="6" class="titulo-registro">REGISTRO</th> <!-- Colspan="6" para ocupar todas las columnas -->
+      </tr>
+      <tr>
+        <th scope="col">Invitado</th>
+        <th scope="col">Num. Personas</th>
+        <th scope="col">Descripción</th>
+        <th scope="col">Mesa</th>
+        <th scope="col">Visto</th>
+        <th scope="col">Confirmacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let fila of resultQuery">
+        <td>{{ fila.nombre }}</td>
+        <td>{{ fila.noInvitados}}</td>
+        <td>{{ fila.descripcion }}</td>
+        <td>{{ fila.noMesa}}</td>
+        <td>{{ fila.leido}}</td>
+        <td>{{ fila.confAsistencia}}</td>
+      </tr>
+    </tbody>
+  </table>
+  

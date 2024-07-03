@@ -19,7 +19,10 @@ const routes: Routes = [
   {path:'demo', component: DemoComponent},
   { path:'', component: LoginComponent },
   { path:'**', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '/login' }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

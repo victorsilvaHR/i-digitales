@@ -1,0 +1,35 @@
+.registro{
+    margin-top: 2em;
+}
+ .negrita {
+        font-weight: bold;
+        font-size: 22px;
+      }
+  .table {
+    margin-top: 3em;
+  }
+      
+@media only screen and (max-width: 600px) {
+    .subtitulo2 {
+        display: block;
+    }
+}
+.texto-movil {
+    display: none; 
+  }
+ 
+    .texto-movil {
+      display: block; 
+      text-align: center;
+      font-size: 13px; 
+      font-family: "Special Elite", system-ui;
+      color: #002e5d;
+    }
+    .enlace{
+        color: red;
+        font-weight: 550;
+        text-align: right;
+      }
+
+
+  

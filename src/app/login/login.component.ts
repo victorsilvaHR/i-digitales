@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { UserService } from '../servicios/user.service';
 import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from '../servicios/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginComponent implements OnInit , CanActivate {
   loginForm!: FormGroup;
   analytics: any;
   mostrarPassword: boolean = false;
@@ -21,12 +27,30 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private userService : UserService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private authService: AuthService, private router: Router
   ) { 
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
+  }
+  canActivate1( 
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.authService.isAuthenticated()) {
+      return true;
+    } else {
+      this.router.navigate(['/login']);
+      return false;
+    }
+  }
+  login() {
+    this.authService.login();
+    this.router.navigate(['/protected']);
+  }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    throw new Error('Method not implemented.');
   }
 
   ngOnInit(): void {
