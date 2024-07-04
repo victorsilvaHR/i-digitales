@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
 import { UserService } from '../servicios/user.service';
 import { Usuario } from '../model/usuarios';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/enviroment';
 
 @Component({
   selector: 'app-usuarios',

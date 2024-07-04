@@ -9,7 +9,14 @@ import { DataService } from '../servicios/db.service';
 })
 export class HeaderComponent implements OnInit {
   nombre = ''
-  isCollapsed: boolean = false;
+  isCollapsed = false;
+  collapseNavbar() {
+    this.isCollapsed = true;
+}
+
+toggleNavbar() {
+    this.isCollapsed = !this.isCollapsed;
+}
   
 
 

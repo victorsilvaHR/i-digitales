@@ -1,25 +1,51 @@
-/* styles.css */
 .countdown-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.countdown-box {
+  background-color: #be99b5;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100px; /* Ancho fijo */
+  height: 100px; /* Alto fijo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-number {
+  font-size: 2em;
+  color: #fff;
+}
+
+.countdown-label {
+  font-size: 1em;
+  color: #ccc;
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .countdown-container {
+      flex-direction: row;
+      gap: 5px;
   }
-  
+
   .countdown-box {
-    background-color: #000;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+      padding: 10px;
+      width: 80px; /* Ajustar ancho para móvil */
+      height: 80px; /* Ajustar alto para móvil */
   }
-  
+
   .countdown-number {
-    font-size: 2em;
-    color: #fff;
+      font-size: 1.5em;
   }
-  
+
   .countdown-label {
-    font-size: 1em;
-    color: #ccc;
+      font-size: 0.8em;
   }
-  
+}

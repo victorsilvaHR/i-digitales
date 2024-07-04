@@ -2,8 +2,8 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { UserService } from '../servicios/user.service';
 import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app';
+import { environment } from 'src/environments/enviroment';
 
 @Component({
   selector: 'app-login',
