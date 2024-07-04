@@ -9,17 +9,8 @@ import { DataService } from '../servicios/db.service';
 })
 export class HeaderComponent implements OnInit {
   nombre = ''
-  isCollapsed = false;
-  collapseNavbar() {
-    this.isCollapsed = true;
-}
-
-toggleNavbar() {
-    this.isCollapsed = !this.isCollapsed;
-}
+  isCollapsed = true;
   
-
-
   constructor(
     private userService: UserService,
     private dataService : DataService,
@@ -28,6 +19,12 @@ toggleNavbar() {
   ngOnInit(): void {
     this.validarSesion();
 
+  }
+  toggleNavbar() {
+    this.isCollapsed = !this.isCollapsed;
+  }
+  collapseNavbar() {
+    this.isCollapsed = true;
   }
   cerrarSesion(){
     this.userService.logOut();
@@ -40,18 +37,14 @@ toggleNavbar() {
     this.dataService.cargarData();
   }
   validarSesion(){
- if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
-   const uid = sessionStorage.getItem('uid');
-   const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '')
-   this.nombre = usuario.nombre
-   return !!uid;
- } else {
-   return false;
- }
- }
- navbar(){
-   this.isCollapsed = !this.isCollapsed;
- 
- }
+    if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
+      const uid = sessionStorage.getItem('uid');
+      const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '')
+      this.nombre = usuario.nombre
+      return !!uid;
+    } else {
+      return false;
+    }
+  }
 
 }

@@ -46,4 +46,9 @@
     background-color: #6694de; 
     color: white; 
   }
-  
+  .show {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }

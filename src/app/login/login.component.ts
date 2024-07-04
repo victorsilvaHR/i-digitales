@@ -3,7 +3,7 @@ import { UserService } from '../servicios/user.service';
 import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { initializeApp } from 'firebase/app';
-import { environment } from 'src/environments/enviroment';
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
 @Component({
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.showSpiner = true;
       try {
         const user =  await this.userService.singIn(email, password);
-        sessionStorage.setItem('uid',user.uid);
+        
         this.userService.loginUser();
         this.showSpiner = false;
         this.router.navigate(['/home']);
