@@ -4,6 +4,7 @@ import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { initializeApp } from 'firebase/app';
 import { environment } from 'src/environments/enviroment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   nombre : string = ''
 
   constructor(
-    private userService : UserService,
+    private userService : UserService,private router: Router,
     private apiService: ApiService
   ) { 
     this.loginForm = new FormGroup({
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('uid',user.uid);
         this.userService.loginUser();
         this.showSpiner = false;
+        this.router.navigate(['/home']);
         this.getUserById();
       } catch (error) {
         console.log(error);

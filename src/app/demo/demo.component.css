@@ -45,7 +45,7 @@
   .fondo {
     background-color: #f0f0f0; 
     text-align: left;
-    height: 7500px; 
+    height: 6000px; 
 }
 .imagen-ajustada {
   width: 40%;
@@ -220,10 +220,9 @@
 }
 .confirmation-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  margin-top: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
 }
 .confirmation-box {
   padding: 20px;
@@ -238,7 +237,7 @@
 
 }
 .confirmation-box label {
-  margin-top: 10px;
+  margin-top: 8px;
 }
 .input-group {
     display: flex;
@@ -246,15 +245,7 @@
     align-items: center;
     margin: 20px 0;
 }
-.left-align {
-    flex: 1;
-    text-align: left;
-}
 
-.right-align {
-    flex: 1;
-    text-align: right;
-}
 .confirm-btn {
     display: block;
     margin: 20px auto;
@@ -271,9 +262,12 @@
 }
 .radio-group {
   display: flex;
-  flex-direction: row;
-  gap: 10px; /* Espacio entre los botones de radio */
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
+
 .input-group input, .input-group textarea {
   margin-top: 5px;
   width: 100%;
@@ -319,6 +313,9 @@
 }
 .carousel-inner {
   padding: 20px 0;
+}
+.fondo {
+  height: auto; /* Ajustar la altura para que sea automática */
 }
   
 }
