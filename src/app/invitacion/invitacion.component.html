@@ -17,7 +17,7 @@
             <span class="input-group-text" id="inputGroup-sizing-default">Num.Personas</span>
           </div>
           <input type="text" class="form-control" aria-label="Default" placeholder="Num.Invitados" aria-describedby="inputGroup-sizing-default"
-          [(ngModel)]="invitacion.noInvitados">
+          [(ngModel)]="invitacion.noInvitados" (keypress)="numberOnly($event)">
         </div>
       </div>
     </div>

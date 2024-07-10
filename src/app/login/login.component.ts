@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from '../servicios/user.service';
 import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
       this.showSpiner = true;
       try {
         const user =  await this.userService.singIn(email, password);
-        
         this.userService.loginUser();
         this.showSpiner = false;
         this.router.navigate(['/home']);
