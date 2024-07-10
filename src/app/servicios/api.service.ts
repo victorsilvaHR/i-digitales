@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/enviroment';
 
 
 @Injectable({
@@ -66,4 +66,23 @@ export class ApiService {
         
             return this.http.post(environment.dev + environment.endpoints.postInvitaciones, JSON.stringify(invitacion), { headers });
           }
+          leido(id: any){
+            const headers = new HttpHeaders({
+               'Content-Type': 'application/json',
+               'X-Auth-Token': environment.auth
+               });
+
+            return this.http.post(environment.dev + environment.endpoints.leido, JSON.stringify(id), { headers });
+            
+          }
+          confirmar(id: any){
+            const headers = new HttpHeaders({
+               'Content-Type': 'application/json',
+               'X-Auth-Token': environment.auth
+               });
+
+            return this.http.post(environment.dev + environment.endpoints.confirmar, JSON.stringify(id), { headers });
+            
+          }
+          
 }

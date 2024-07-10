@@ -3,8 +3,8 @@ import { UserService } from '../servicios/user.service';
 import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { initializeApp } from 'firebase/app';
-import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/enviroment';
 
 @Component({
   selector: 'app-login',
