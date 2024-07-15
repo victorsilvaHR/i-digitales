@@ -76,13 +76,14 @@ export class ApiService {
             return this.http.post(environment.dev + environment.endpoints.leido, JSON.stringify(id), { headers });
             
           }
-          confirmar(id: any){
+          confirmar(body: any ){
             const headers = new HttpHeaders({
                'Content-Type': 'application/json',
                'X-Auth-Token': environment.auth
                });
+          
 
-            return this.http.post(environment.dev + environment.endpoints.confirmar, JSON.stringify(id), { headers });
+            return this.http.post(environment.dev + environment.endpoints.confirmar, JSON.stringify(body), { headers });
             
           }
           

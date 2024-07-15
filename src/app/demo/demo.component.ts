@@ -9,11 +9,15 @@ import { ApiService } from '../servicios/api.service';
 export class DemoComponent implements OnInit{
   title = 'mi-app';
   body = {
-    id : 3
+    id : 13,
+    asistencia: false
   }  
+  // opcionSeleccionada: string;
+
   constructor(
     private apiService: ApiService
-  ){}
+   
+  ){ }
 
 
   ngOnInit(): void {
@@ -36,7 +40,14 @@ this.apiService.leido(this.body).subscribe(
   }
   
   confirmar(){
-  this.apiService.confirmar(this.body)
+  this.apiService.confirmar(this.body).subscribe(
+    (response: any) => {
+      console.log(' Confirmacion exitosa:', response);
+    },
+    (error: any) => {
+      console.error('Error al confirmar la invitación:', error);
+    }
+  );
   }
 
 }
