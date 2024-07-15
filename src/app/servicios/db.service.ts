@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { initializeApp } from "firebase/app";
 import { child, get, getDatabase, ref, set } from "firebase/database";
 import { User } from 'firebase/auth';
-import { environment } from 'src/environments/enviroment';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({

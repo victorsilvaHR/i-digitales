@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { environment } from 'src/environments/enviroment';
+import { environment } from 'src/environments/environment';
 @Injectable({
     providedIn: 'root'
   })

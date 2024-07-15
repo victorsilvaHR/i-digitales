@@ -30,6 +30,7 @@ yarn-error.log
 environments
 /environments
 */environment.ts
+*/enviroment.ts
 
 # Miscellaneous
 /.angular/cache

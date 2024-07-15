@@ -4,7 +4,7 @@ import { ApiService } from '../servicios/api.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { initializeApp } from 'firebase/app';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/enviroment';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
