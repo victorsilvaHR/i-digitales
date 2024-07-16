@@ -16,6 +16,7 @@ const routes: Routes = [
   { path:'eventos', component: EventoComponent , canActivate: [AuthGuard]  },
   { path:'usuarios', component: UsuariosComponent ,  canActivate: [AuthGuard] },
   {path:'demo', component: DemoComponent  },
+  {path:'demo/:id', component: DemoComponent  },
   { path:'login', component: LoginComponent},
   {path:'**', component: LoginComponent},
 
