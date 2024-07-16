@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-demo',
@@ -7,20 +8,24 @@ import { ApiService } from '../servicios/api.service';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit{
+  parametro : string | null = '' ;
   title = 'mi-app';
   body = {
     id : 13,
     asistencia: false
-  }  
-  // opcionSeleccionada: string;
+  };
+
 
   constructor(
-    private apiService: ApiService
-   
+    private apiService: ApiService,
+    private route: ActivatedRoute
   ){ }
 
 
   ngOnInit(): void {
+    this.parametro = this.route.snapshot.paramMap.get('parametro');
+ 
+  
 
 this.apiService.leido(this.body).subscribe(
   (response: any) => {

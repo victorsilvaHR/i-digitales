@@ -9,4 +9,12 @@
 .modal-title {
     margin-left: 6em; 
   }
+  .copy-icon {
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .copy-icon:active {
+    transform: scale(0.9);
+  }
   

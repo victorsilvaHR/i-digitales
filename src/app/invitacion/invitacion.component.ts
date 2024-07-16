@@ -25,11 +25,16 @@ export class InvitacionComponent {
   concatenado: string = '';
  
   crear() {
-    if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion) {
+    if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion ) {
       this.error = false;
       this.invitacionData = this.invitacion; 
       console.log(this.invitacion);
-      this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa;
+      
+      const currentUser =  sessionStorage.getItem('currentUser');
+      const dataUser = JSON.parse(currentUser + '');
+      this.invitacion.idEvento = dataUser.idEvento;
+
+      this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
       this.mostrarInput = true;
       
       this.apiService.createInvitacion(this.invitacion).subscribe(
@@ -66,6 +71,14 @@ export class InvitacionComponent {
   onModalClose() {
     this.limpiarCampos();
   }
-
+  copy(event: MouseEvent) {
+    if (this.invitacion.idEvento) {
+      navigator.clipboard.writeText(this.invitacion.idEvento).then(() => {
+        console.log('Id del Evento copiado al portapapeles');
+      }).catch(err => {
+        console.error('Error al copiar al portapapeles:', err);
+      });
+    }
+  }
 
 }

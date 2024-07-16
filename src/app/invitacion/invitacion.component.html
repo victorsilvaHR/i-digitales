@@ -48,7 +48,7 @@
       <div class="col-md-6">
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Liga del evento" aria-label="Recipient's username" aria-describedby="button-addon2"
-          [(ngModel)]="concatenado">
+          [(ngModel)]="invitacion.idEvento">
           <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="button-addon2" 
          >Copiar</button>
         </div>
@@ -64,7 +64,7 @@
     Todos los campos son obligatorios.
   </div> 
 </div>
-<div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" (hidden.bs.modal)="onModalClose()">
+<div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" (hidden.bs.modal)="onModalClose()" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -72,7 +72,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>{{ concatenado }}</p>
+        <p  >{{ invitacion.idEvento }}  
+          <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/copy.png" alt="copy" (click)="copy($event)" class="copy-icon" /></p>
       </div>
     </div>
   </div>
