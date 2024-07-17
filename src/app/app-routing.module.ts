@@ -15,10 +15,11 @@ const routes: Routes = [
   { path:'registro', component: RegistroComponent , canActivate: [AuthGuard]  },
   { path:'eventos', component: EventoComponent , canActivate: [AuthGuard]  },
   { path:'usuarios', component: UsuariosComponent ,  canActivate: [AuthGuard] },
-  {path:'demo', component: DemoComponent  },
-  {path:'demo/:id', component: DemoComponent  },
-  { path:'login', component: LoginComponent},
-  {path:'**', component: LoginComponent},
+  { path:'demo', component: DemoComponent  },
+  { path:'demo/:id', component: DemoComponent  },
+  { path:'login', component: LoginComponent },
+  { path:'', component: LoginComponent },
+  { path:'**', component: LoginComponent },
 
 ];
 
