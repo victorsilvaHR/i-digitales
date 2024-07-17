@@ -18,9 +18,14 @@
         <td>{{ fila.noInvitados}}</td>
         <td>{{ fila.descripcion }}</td>
         <td>{{ fila.noMesa}}</td>
-        <td><img *ngIf="fila.confAsistencia"  width="48" height="48" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji"></td>
-        <td><img *ngIf="fila.confAsistencia"  width="48" height="48" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji"/>
-          <img *ngIf="!fila.confAsistencia "   width="48" height="48" src="https://img.icons8.com/papercut/60/delete-sign.png" alt="delete-sign"/></td>
+        <td>
+          <img *ngIf="fila.leido"  width="48" height="48" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji">
+          <img *ngIf="!fila.leido"   width="48" height="48" src="https://img.icons8.com/papercut/60/delete-sign.png" alt="delete-sign"/>
+        </td>
+        <td>
+          <img *ngIf="fila.confAsistencia"  width="48" height="48" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji"/>
+          <img *ngIf="!fila.confAsistencia"   width="48" height="48" src="https://img.icons8.com/papercut/60/delete-sign.png" alt="delete-sign"/>
+        </td>
       </tr>
     </tbody>
   </table>
