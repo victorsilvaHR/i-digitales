@@ -76,7 +76,7 @@ export class InvitacionComponent {
           const urlCompleta = `${urlBase}${demoComponent}/${id}`;
   
           // Redirigir a la URL completa
-          window.location.href = urlCompleta;
+          // window.location.href = urlCompleta;
         },
         (error: any) => {
           console.error('Error al crear la invitación:', error);

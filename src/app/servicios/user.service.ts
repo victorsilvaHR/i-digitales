@@ -47,6 +47,7 @@ import { environment } from 'src/environments/environment';
       }
       logOutUser(){
         sessionStorage.removeItem('uid');
+        sessionStorage.removeItem('currentUser');
         this.isLoggedIn = false;
       }
       getIsLoged (){
