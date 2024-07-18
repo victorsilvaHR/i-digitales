@@ -289,7 +289,12 @@
   margin-top: 3em;
 }
 
-.icofont-rounded-left {
+.prev {
+  font-size: 2em;
+  color: #000;
+}
+.next {
+  font-size: 2em;
   color: #000;
 }
 
