@@ -24,22 +24,59 @@ export class InvitacionComponent {
   mostrarInput: boolean = false;
   concatenado: string = '';
  
+  // crear() {
+  //   if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion ) {
+  //     this.error = false;
+  //     this.invitacionData = this.invitacion; 
+  //     console.log(this.invitacion);
+      
+  //     const currentUser =  sessionStorage.getItem('currentUser');
+  //     const dataUser = JSON.parse(currentUser + '');
+  //     this.invitacion.idEvento = dataUser.idEvento;
+
+  //     this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
+  //     this.mostrarInput = true;
+      
+  //     this.apiService.createInvitacion(this.invitacion).subscribe(
+  //       (response: any) => {
+  //         console.log('Invitación creada exitosamente:', response);
+  //       },
+  //       (error: any) => {
+  //         console.error('Error al crear la invitación:', error);
+  //         this.error = true;
+  //       }
+  //     );
+  //   } else {
+  //     this.error = true; 
+  //   }
+  // }
   crear() {
-    if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion ) {
+    if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion) {
       this.error = false;
       this.invitacionData = this.invitacion; 
       console.log(this.invitacion);
       
-      const currentUser =  sessionStorage.getItem('currentUser');
+      const currentUser = sessionStorage.getItem('currentUser');
       const dataUser = JSON.parse(currentUser + '');
       this.invitacion.idEvento = dataUser.idEvento;
-
+  
       this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
       this.mostrarInput = true;
       
       this.apiService.createInvitacion(this.invitacion).subscribe(
         (response: any) => {
           console.log('Invitación creada exitosamente:', response);
+          
+          // Obtener el ID de la respuesta (ajusta esto según tu estructura de respuesta)
+          const id = response.data.id; // Asegúrate de que el campo `id` esté disponible en tu respuesta
+  
+          // Concatenar la URL
+          const urlBase = 'https://invitaciones-31afc.web.app/';
+          const demoComponent = 'demo'; // Cambia esto por el nombre de tu componente de demo si es necesario
+          const urlCompleta = `${urlBase}${demoComponent}/${id}`;
+  
+          // Redirigir a la URL completa
+          // window.location.href = urlCompleta;
         },
         (error: any) => {
           console.error('Error al crear la invitación:', error);
@@ -50,6 +87,7 @@ export class InvitacionComponent {
       this.error = true; 
     }
   }
+  
 
   limpiarCampos() {
     this.invitacion.nombre = '';

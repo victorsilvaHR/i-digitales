@@ -79,6 +79,7 @@ export class LoginComponent implements OnInit {
       console.error('UID no encontrado en sessionStorage');
     }
   }
+ 
   
   }
 

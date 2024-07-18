@@ -8,33 +8,48 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit{
-  parametro : string | null = '' ;
+  parametro : string  | null  ;
   title = 'mi-app';
   body = {
     id : 13,
     asistencia: false
   };
-
+  invitacion: any = {
+    nombre: '',
+    noInvitados: ''
+  };
 
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute
-  ){ }
+  ){ this.parametro = this.route.snapshot.paramMap.get('id');
+  }
 
 
   ngOnInit(): void {
-    this.parametro = this.route.snapshot.paramMap.get('parametro');
+
+    console.log("HOLA",this.parametro)
+    this.apiService.getById('invitaciones', 'id', this.parametro +'') .subscribe(
+      (response: any) => {
+        console.log('Consulta exitosa:', response);
+        this.invitacion.nombre = response[0].nombre;
+        this.invitacion.noInvitados = response[0].noInvitados
+      },
+      (error) => {
+        console.error('Error en la consulta:', error);
+      }
+    );
  
   
 
-this.apiService.leido(this.body).subscribe(
-  (response: any) => {
-    console.log('Invitación creada exitosamente:', response);
-  },
-  (error: any) => {
-    console.error('Error al crear la invitación:', error);
-  }
-);
+    this.apiService.leido(this.body).subscribe(
+      (response: any) => {
+        console.log('Invitación creada exitosamente:', response);
+      },
+      (error: any) => {
+        console.error('Error al crear la invitación:', error);
+      }
+    );
   }
  
 
