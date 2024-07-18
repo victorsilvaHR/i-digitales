@@ -10,6 +10,7 @@ import { DataService } from '../servicios/db.service';
 export class HeaderComponent implements OnInit {
   nombre = ''
   isCollapsed = true;
+  owner = false;
   
   constructor(
     private userService: UserService,
@@ -39,8 +40,9 @@ export class HeaderComponent implements OnInit {
   validarSesion(){
     if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
       const uid = sessionStorage.getItem('uid');
-      const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '')
-      this.nombre = usuario.nombre
+      const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '');
+      this.nombre = usuario.nombre;
+      this.owner = usuario.owner;
       return !!uid;
     } else {
       return false;

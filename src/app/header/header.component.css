@@ -43,8 +43,11 @@
     margin-left: 20em;
 }
 .nav-link.active {
-    background-color: #6694de; 
-    color: white; 
+    background-color: #bcd2f4; 
+    /* color: white;  */
+    padding-left: 4px;
+    margin-left: -4px;
+    border-radius: 5px;
   }
   .show {
     display: block;
