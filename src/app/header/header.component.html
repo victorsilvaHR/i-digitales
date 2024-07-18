@@ -19,22 +19,25 @@
               <li class="nav-item">
                   <a class="nav-link" routerLink="/registro" routerLinkActive="active" (click)="collapseNavbar()">Registro</a>
               </li>
-              <li class="nav-item">
+              <li *ngIf="owner" class="nav-item">
                   <a class="nav-link" routerLink="/eventos" routerLinkActive="active" (click)="collapseNavbar()">Eventos</a>
               </li>
-              <li class="nav-item">
+              <li *ngIf="owner" class="nav-item">
                   <a class="nav-link" routerLink="/usuarios" routerLinkActive="active" (click)="collapseNavbar()">Usuarios</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" routerLink="/demo" routerLinkActive="active" (click)="collapseNavbar()">Demo</a>
               </li>
+              <!-- <li class="nav-item">
+                <button class="btn btn-danger btn-sm" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
+            </li> -->
           </ul>
       </div>
       
         
         <div class="d-flex flex-column align-items-end ms-auto">
           <p class="Bienvenido mb-1">¡Bienvenido!  {{nombre}}</p>
-          <button class="btn btn-danger btn-sm" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
+          <button class="btn btn-danger btn-sm desktop" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
         </div>
       </div>
     </nav>
