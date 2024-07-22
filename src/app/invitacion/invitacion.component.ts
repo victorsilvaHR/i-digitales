@@ -22,7 +22,7 @@ export class InvitacionComponent {
   error = false;
   invitacionData: any = null;
   mostrarInput: boolean = false;
-  concatenado: string = '';
+  urlCompleta: string = '';
  
   
   crear() {
@@ -35,7 +35,7 @@ export class InvitacionComponent {
       const dataUser = JSON.parse(currentUser + '');
       this.invitacion.idEvento = dataUser.idEvento;
   
-      this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
+      // this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
       this.mostrarInput = true;
       
       this.apiService.createInvitacion(this.invitacion).subscribe(
@@ -44,14 +44,15 @@ export class InvitacionComponent {
           
           // Obtener el ID de la respuesta (ajusta esto según tu estructura de respuesta)
           const id = response.data.id; // Asegúrate de que el campo `id` esté disponible en tu respuesta
-  
+
+
           // Concatenar la URL
-          const urlBase = 'https://invitaciones-31afc.web.app/';
-          const demoComponent = 'demo'; // Cambia esto por el nombre de tu componente de demo si es necesario
-          const urlCompleta = `${urlBase}${demoComponent}/${id}`;
+          const urlBase = 'https://invitaciones-31afc.web.app';
+          const evento = this.invitacion.idEvento; 
+          this.urlCompleta = `${urlBase}/${evento}/${id}`;
   
           // Redirigir a la URL completa
-          window.location.href = urlCompleta;
+          // window.location.href = urlCompleta;
         },
         (error: any) => {
           console.error('Error al crear la invitación:', error);
@@ -71,7 +72,7 @@ export class InvitacionComponent {
     this.invitacion.noMesa = '';
     this.invitacionData = null;
     this.mostrarInput = false;
-    this.concatenado = '';
+    this.urlCompleta = '';
   }
   numberOnly(event: any): boolean {
     const charCode = event.which ? event.which : event.keyCode;
@@ -85,8 +86,8 @@ export class InvitacionComponent {
     this.limpiarCampos();
   }
   copy(event: MouseEvent) {
-    if (this.invitacion.idEvento) {
-      navigator.clipboard.writeText(this.invitacion.idEvento).then(() => {
+    if (this.urlCompleta) {
+      navigator.clipboard.writeText(this.urlCompleta).then(() => {
         console.log('Id del Evento copiado al portapapeles');
       }).catch(err => {
         console.error('Error al copiar al portapapeles:', err);

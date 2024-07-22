@@ -18,6 +18,8 @@ const routes: Routes = [
   { path:'demo', component: DemoComponent  },
   { path:'demo/:id', component: DemoComponent  },
   { path:'login', component: LoginComponent },
+  { path:'victor.hugo.silva01-bautizo/:id', component: DemoComponent  },
+
   { path:'', component: LoginComponent },
   { path:'**', component: LoginComponent },
 
