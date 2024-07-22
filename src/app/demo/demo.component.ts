@@ -42,7 +42,7 @@ export class DemoComponent implements OnInit{
 
     this.apiService.leido(this.body).subscribe(
       (response: any) => {
-        console.log('Invitación creada exitosamente:', response);
+        console.log('Confirmacion de lectura con exito:', response);
       },
       (error: any) => {
         console.error('Error al crear la invitación:', error);

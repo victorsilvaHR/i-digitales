@@ -41,8 +41,8 @@ export class HeaderComponent implements OnInit {
     if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
       const uid = sessionStorage.getItem('uid');
       const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '');
-      this.nombre = usuario.nombre;
-      this.owner = usuario.owner;
+      this.nombre = usuario ? usuario.nombre : "";
+      this.owner = usuario ? usuario.owner : "";
       return !!uid;
     } else {
       return false;
