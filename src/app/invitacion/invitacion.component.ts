@@ -24,32 +24,7 @@ export class InvitacionComponent {
   mostrarInput: boolean = false;
   concatenado: string = '';
  
-  // crear() {
-  //   if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion ) {
-  //     this.error = false;
-  //     this.invitacionData = this.invitacion; 
-  //     console.log(this.invitacion);
-      
-  //     const currentUser =  sessionStorage.getItem('currentUser');
-  //     const dataUser = JSON.parse(currentUser + '');
-  //     this.invitacion.idEvento = dataUser.idEvento;
-
-  //     this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
-  //     this.mostrarInput = true;
-      
-  //     this.apiService.createInvitacion(this.invitacion).subscribe(
-  //       (response: any) => {
-  //         console.log('Invitación creada exitosamente:', response);
-  //       },
-  //       (error: any) => {
-  //         console.error('Error al crear la invitación:', error);
-  //         this.error = true;
-  //       }
-  //     );
-  //   } else {
-  //     this.error = true; 
-  //   }
-  // }
+  
   crear() {
     if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion) {
       this.error = false;
@@ -76,7 +51,7 @@ export class InvitacionComponent {
           const urlCompleta = `${urlBase}${demoComponent}/${id}`;
   
           // Redirigir a la URL completa
-          // window.location.href = urlCompleta;
+          window.location.href = urlCompleta;
         },
         (error: any) => {
           console.error('Error al crear la invitación:', error);

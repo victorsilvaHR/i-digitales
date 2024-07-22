@@ -27,8 +27,6 @@ export class DemoComponent implements OnInit{
 
 
   ngOnInit(): void {
-
-    console.log("HOLA",this.parametro)
     this.apiService.getById('invitaciones', 'id', this.parametro +'') .subscribe(
       (response: any) => {
         console.log('Consulta exitosa:', response);
