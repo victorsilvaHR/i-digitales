@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
+import * as AOS from 'aos';
+
+
 
 @Component({
   selector: 'app-demo',
@@ -11,7 +14,7 @@ export class DemoComponent implements OnInit{
   parametro : string  | null  ;
   title = 'mi-app';
   body = {
-    id : 13,
+    id : '',
     asistencia: false
   };
   invitacion: any = {
@@ -27,6 +30,10 @@ export class DemoComponent implements OnInit{
 
 
   ngOnInit(): void {
+    if (this.parametro) {
+      this.body.id = this.parametro;
+    }
+
     this.apiService.getById('invitaciones', 'id', this.parametro +'') .subscribe(
       (response: any) => {
         console.log('Consulta exitosa:', response);
