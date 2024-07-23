@@ -1,4 +1,4 @@
-<div class="margen  container" >
+<!-- <div class="margen  container" >
     <p class="negrita">Crear Invitación</p>
     <div class="row mb-3">
       <div class="col-md-6">
@@ -44,25 +44,24 @@
       </div>
     </div>
   
-    <div class="row mb-3" *ngIf="mostrarInput">
-      <div class="col-md-6">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Liga del evento" aria-label="Recipient's username" aria-describedby="button-addon2"
-          [(ngModel)]="invitacion.idEvento">
-          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="button-addon2" 
-         >Copiar</button>
-        </div>
-      </div>
-    </div>
-    
     <div class="row">
       <div class="d-grid d-md-flex justify-content-md-end">
         <button class="btn btn-info"  type="button"  (click)="crear()">Crear</button>
       </div>
     </div>
+
   <div *ngIf="error" class="alert alert-danger mt-3">
     Todos los campos son obligatorios.
   </div> 
+</div>
+<div class="row mb-3">
+  <div class="col-md-6">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Liga del evento" aria-label="Recipient's username" aria-describedby="button-addon2">
+      {{ urlCompleta}}
+      <button class="btn btn-outline-secondary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" id="button-addon2">Copiar</button>
+    </div>
+  </div>
 </div>
 <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" (hidden.bs.modal)="onModalClose()" >
   <div class="modal-dialog">
@@ -72,11 +71,92 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p  >{{ urlCompleta}}
-          <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/copy.png" alt="copy" (click)="copy($event)" class="copy-icon" /></p>
+          <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/copy.png" alt="copy" (click)="copy($event)" class="copy-icon" />
       </div>
     </div>
   </div>
 </div>
 
+   -->
+   <div class="margen container">
+    <p class="negrita">Crear Invitación</p>
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Invitado</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="Invitado" aria-describedby="inputGroup-sizing-default" [(ngModel)]="invitacion.nombre">
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Num.Personas</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="Num.Invitados" aria-describedby="inputGroup-sizing-default" [(ngModel)]="invitacion.noInvitados" (keypress)="numberOnly($event)">
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Descripción</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="Descripción" aria-describedby="inputGroup-sizing-default" [(ngModel)]="invitacion.descripcion"
+          (keypress)="textOnly($event)">
+        </div>
+      </div>
+  
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Mesa</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" placeholder="Mesa (opcional)" aria-describedby="inputGroup-sizing-default" [(ngModel)]="invitacion.noMesa">
+        </div>
+      </div>
+    </div>
+  
+    <div class="row mb-3">
+      <div class="d-grid d-md-flex justify-content-md-end">
+        <button class="btn btn-info" type="button" (click)="crear()">Crear</button>
+      </div>
+    </div>
+  
+    <div *ngIf="error" class="alert alert-danger mt-3">
+      Todos los campos son obligatorios.
+    </div>
+  </div>
+  
+  <div *ngIf="mostrarInput" class="container text-center mt-3">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="url-box p-3">
+          {{ urlCompleta }}
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-center mt-2">
+          <button class="btn btn-outline-secondary copy-button btn-info" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Copiar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" (hidden.bs.modal)="onModalClose()">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">LISTO</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Comparte la URL con tu invitado
+          <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/copy.png" alt="copy" (click)="copy($event)" class="copy-icon" />
+        </div>
+      </div>
+    </div>
+  </div>
   

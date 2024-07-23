@@ -81,6 +81,14 @@ export class InvitacionComponent {
     }
     return true;
   }
+  textOnly(event: any): boolean {
+    const charCode = event.which ? event.which : event.keyCode;
+    if (charCode >= 48 && charCode <= 57) {
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
 
   onModalClose() {
     this.limpiarCampos();
