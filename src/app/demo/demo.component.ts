@@ -20,6 +20,7 @@ export class DemoComponent implements OnInit{
     nombre: '',
     noInvitados: ''
   };
+  botonActivo = true
 
   constructor(
     private apiService: ApiService,
@@ -73,5 +74,7 @@ export class DemoComponent implements OnInit{
     }
   );
   }
-
+  asistencia(){
+    this.botonActivo = false
+  }
 }
