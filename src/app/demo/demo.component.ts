@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,9 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnInit{
+export class DemoComponent implements OnInit {
+  @ViewChild('audio', { static: true }) audio!: ElementRef<HTMLAudioElement>;
+  isPlaying = false;
   parametro : string  | null  ;
   title = 'mi-app';
   body = {
@@ -57,12 +59,6 @@ export class DemoComponent implements OnInit{
     );
   }
  
-
-
-  openMap() {
-    const address = encodeURIComponent("Real Miguel Hidalgo 1000, Ahuatepec, 62300 Cuernavaca, Morelos, México");
-    window.open(`https://www.google.com/maps/search/?api=1&query=${address}`, '_blank');
-  }
   
   confirmar(){
   this.apiService.confirmar(this.body).subscribe(
@@ -76,5 +72,16 @@ export class DemoComponent implements OnInit{
   }
   asistencia(){
     this.botonActivo = false
+  }
+  togglePlay() {
+    const audio = this.audio.nativeElement;
+
+    if (this.isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
+
+    this.isPlaying = !this.isPlaying;
   }
 }

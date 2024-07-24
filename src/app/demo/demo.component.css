@@ -297,6 +297,28 @@
   font-size: 2em;
   color: #000;
 }
+.play-button {
+  position: fixed;
+  bottom: 195px;
+  right: 20px;
+  background-color: #ff4081;
+  border: none;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.play-button:hover {
+  background-color: #e73370;
+}
+
+.play-button .fa {
+  margin: 0;
+}
+
 
 
 

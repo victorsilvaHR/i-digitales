@@ -7,6 +7,13 @@
     <app-countdown></app-countdown>
     </div>
 
+    <button class="play-button" (click)="togglePlay()">
+      <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+  </button>
+  <audio #audio>
+      <source src="assets/usted.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+  </audio>
 
 
     <div class="fondo text-center">
@@ -39,7 +46,7 @@
             <p>Ceremonia: 4:00 p.m.</p>
             <p>“Jardín Quinta Real“.</p>
             <p id="direccion">Real Miguel Hidalgo 1000, Ahuatepec, 62300 Cuernavaca, Morelos, México.</p>
-            <button type="button" class="btn" (click)="openMap()">ABRIR MAPA</button>
+            <a href="https://maps.app.goo.gl/bnHWaQZG8TeyLnua7" target="_blank" class="btn">VER MAPA</a>
             <p class="padrinos">Padrinos de Bodas</p>
             <p>Sin ellos no sería igual.</p>
             
@@ -148,7 +155,8 @@
                       <div class="d-block w-100">
                         <h5 class="hospedaje2">Suite en Cuernavaca</h5>
                         <p>Real Miguel Hidalgo 1000 Ahuatepec,62300 Cuernavaca, Morelos, Mexico.</p>
-                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" target="_blank" class="btn">88CONOCER MÁS</a>
+                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" 
+                        target="_blank" class="btn">CONOCER MÁS</a>
 
                       </div>
                     </div>
@@ -156,7 +164,8 @@
                       <div class="d-block w-100">
                         <h5 class="hospedaje2">Recidencia Cuernavaca</h5>
                         <p>Real Miguel Hidalgo 1000 Ahuatepec,62300 Cuernavaca, Morelos, Mexico..</p>
-                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" target="_blank" class="btn">88CONOCER MÁS</a>
+                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" 
+                        target="_blank" class="btn">CONOCER MÁS</a>
 
                       </div>
                     </div>
@@ -164,7 +173,8 @@
                       <div class="d-block w-100">
                         <h5 class="hospedaje2">Alojamiento Vacacional Cuernavacang</h5>
                         <p>Real Miguel Hidalgo 1000 Ahuatepec,62300 Cuernavaca, Morelos, Mexico.</p>
-                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" target="_blank" class="btn">88CONOCER MÁS</a>
+                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6"
+                         target="_blank" class="btn">CONOCER MÁS</a>
                       </div>
                     </div>
                   </div>
