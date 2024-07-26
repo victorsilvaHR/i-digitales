@@ -260,9 +260,9 @@
            <div class="confirmation-container">
            <div class="confirmation-box">
            <p>¿ASISTIRÁS A NUESTRA BODA?</p>
-         <div class="input-group radio-group">
+         <div class="input-group radio-group ">
         <label class="">
-            <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> Asistiré
+            <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> Asistiré
         </label>
         <label class="">
             <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false > No asistiré
@@ -273,6 +273,7 @@
           (click)="confirmar()" [disabled]="botonActivo">
           CONFIRMAR
         </button>  
+           </div>
 
         <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
