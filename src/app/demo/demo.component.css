@@ -190,7 +190,7 @@
   font-family: "Pinyon Script", cursive;
   color: purple;
   font-size: 2em;
-  margin-top: 4em;
+  margin-top: 3em;
 }
 .hashtag {
   font-family: "Pinyon Script", cursive;
@@ -258,8 +258,6 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
-    margin-left: 5em;
-
 }
 
 .confirm-btn:hover {
@@ -326,7 +324,9 @@
 .play-button .fa {
   margin: 0;
 }
-
+.respuestas{
+  margin-top: 1rem;
+}
 
 
 

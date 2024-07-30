@@ -105,7 +105,7 @@
                 </div>
             </div>
 
-            <P class="programa">Programa</P>
+            <p class="programa">Programa</p>
             <p>¡No te lo puedes perder!</p>
             
             <div class="row program-container">
@@ -145,11 +145,7 @@
 
             <div class="carrusel-container">
                 <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
-                  <!-- <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExample2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExample2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExample2" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div> -->
+                 
                   <div class="carousel-inner">
                     <div class="carousel-item active">
                       <div class="d-block w-100">
@@ -260,19 +256,23 @@
            <div class="confirmation-container">
            <div class="confirmation-box">
            <p>¿ASISTIRÁS A NUESTRA BODA?</p>
-         <div class="input-group radio-group ">
-        <label class="">
-            <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> Asistiré
-        </label>
-        <label class="">
-            <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false > No asistiré
-        </label>
-         </div>
+            <div class="d-flex justify-content-between respuestas">
+        
+                  <label class="">
+                    <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> 
+                  Asistiré
+                  </label>
+          
+                  <label class="">
+                  <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false>  
+                  No asistiré
+                  </label>
+            </div>
 
-         <button class="btn confirm-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          (click)="confirmar()" [disabled]="botonActivo">
-          CONFIRMAR
-        </button>  
+            <button class="btn confirm-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="confirmar()" [disabled]="botonActivo">
+              CONFIRMAR
+            </button>  
            </div>
 
         <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
