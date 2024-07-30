@@ -20,7 +20,8 @@ export class DemoComponent implements OnInit {
   };
   invitacion: any = {
     nombre: '',
-    noInvitados: ''
+    noInvitados: '',
+    noMesa: ''
   };
   botonActivo = true
 
@@ -41,6 +42,8 @@ export class DemoComponent implements OnInit {
         console.log('Consulta exitosa:', response);
         this.invitacion.nombre = response[0].nombre;
         this.invitacion.noInvitados = response[0].noInvitados
+        this.invitacion.noMesa = response[0].noMesa
+
       },
       (error) => {
         console.error('Error en la consulta:', error);

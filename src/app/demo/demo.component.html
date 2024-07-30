@@ -1,3 +1,4 @@
+<div class="demo-component">
 <div class="background-container">
     <div class="content">
         <img src="assets/noviosPrueba.png" alt="noviosPrueba" class="imagen-fondo">
@@ -6,24 +7,32 @@
     <p class="subtitulo text-center">GUARDA ESTA FECHA</p>
     <app-countdown></app-countdown>
     </div>
-
+    <div>
     <button class="play-button" (click)="togglePlay()">
       <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
   </button>
   <audio #audio>
       <source src="assets/usted.mp3" type="audio/mpeg">
   </audio>
+</div>
 
 
     <div class="fondo text-center">
       <div>
         <p class="subtitulo2 ">Nos casamos</p>
-        <p>Cada familia tiene su historia. Bienvenidos a la nuestra.</p>
-        <img src="assets/manosnovios.png" alt="manosnovios" class="imagen-ajustada" >
         <p class="invitado">{{ invitacion.nombre }}</p>
-        <p>{{ invitacion.noInvitados }} PASES</p>
-        <p>Ya no son dos, sino un solo ser. Por tanto, lo que Dios ha unido, que no lo separe nadie. Estás cordialmente invitado a acompañarnos en Nuestra unión matrimonial.</p>
-        <P class="text">Con la bendición de nuestros padres y padrinos, tenemos el placer de invitarles a ser testigos de nuestra unión.</P>
+        <p >
+          <span class="pases">{{ invitacion.noInvitados }}</span> PASES
+        </p>
+        <p>
+          MESA <span class="pases">{{ invitacion.noMesa }}</span>
+        </p>
+        <p>Cada familia tiene su historia. Bienvenidos a la nuestra.</p>
+        <img src="assets/manosnovios.png" alt="manosnovios" class="imagen-manos">
+        <p class="text">Ya no son dos, sino un solo ser. Por tanto, lo que Dios ha unido, que no lo separe nadie. Estás cordialmente 
+          invitado a acompañarnos en Nuestra unión matrimonial.</p>
+        <P >Con la bendición de nuestros padres y padrinos, tenemos el placer de invitarles a 
+          ser testigos de nuestra unión.</P>
       </div>
             <div class="row">
                 <div class="col-md-6">
@@ -244,7 +253,12 @@
               <p class="recuerdos">Nuestros recuerdos</p>
               <p class="hashtag">Hashtag</p>
               <p>No olvides etiquetarnos en todas tus publicaciones de Instagram y Facebook utilizando nuestro Hashtag…</p>
-              <p class="no">#bodabrendayrodrigo</p>
+              <div class="faceInsta">
+                <i class="fa-brands fa-facebook mx-2"></i>
+                <i class="fa-brands fa-instagram mx-2"></i>
+              </div>
+              <p class="fotos">#bodabrendayrodrigo</p>
+
               </div>
 
          <div>
@@ -287,7 +301,12 @@
             </div>
           </div>
         </div>
-      
+      </div>
+    </div>
+  </div>
 
- </div>
+
+
+
+
 

@@ -1,3 +1,7 @@
+.demo-component {
+    overflow-x: hidden;
+
+}
 .imagen-fondo {
     position: absolute;
     top: 0;
@@ -33,6 +37,8 @@
     top: 0;
     left: 0;
     z-index: -1; 
+    overflow-x: hidden;
+
   }
   .subtitulo2  {
     font-family: "Pinyon Script", cursive;
@@ -48,19 +54,23 @@
     height: 6000px; 
     margin-left: 0px;
     margin-right:0px;
+
 }
-.imagen-ajustada {
-  width: 40%;
-  float: left;
-  margin: 25px 20px 80px 12px; 
+.imagen-manos {
+  width: 65%;
+
 }
 .invitado {
   font-family: "Pinyon Script", cursive;
-  color: purple;
-  font-size: 40px;
+  color: #e73370;
+  font-size: 60px;
+}
+.pases {
+  color: #e73370;
+  font-size: 2em
 }
 .text{
-  margin-top: 10em;
+  margin-top: 2em;
 
 }
 .padres{
@@ -76,7 +86,7 @@
   font-family: "Pinyon Script", cursive;
   color: purple;
   font-size: 40px;
-  margin-top: 3em;
+  margin-top: 1em;
 }
 .btn{
   background-color: #7a55aa;
@@ -86,7 +96,7 @@
   font-family: "Pinyon Script", cursive;
   color: purple;
   font-size: 40px;
-  margin-top: 3em;
+  margin-top: 1em;
 
 }
 .carousel{
@@ -118,7 +128,7 @@
   margin-top: 2em;
 }
 .formal {
-  margin-top: 4em;
+  margin-top: 1em;
 }
 .img-fluid {
   max-width: 50px; /* Ajusta el tamaño máximo de las imágenes según tus necesidades */
@@ -128,7 +138,6 @@
   font-family: "Pinyon Script", cursive;
   color: purple;
   font-size: 3em;
-  margin-top: 1em;
 }
 .programa2 {
   font-family: "Pinyon Script", cursive;
@@ -190,7 +199,6 @@
   font-family: "Pinyon Script", cursive;
   color: purple;
   font-size: 2em;
-  margin-top: 3em;
 }
 .hashtag {
   font-family: "Pinyon Script", cursive;
@@ -220,6 +228,12 @@
   color: purple;
   font-size: 2em;
   margin-top: 1em;
+}
+.fotos {
+  color: purple;
+  font-size: 2em;
+
+
 }
 .confirmation-container {
   display: flex;
@@ -287,10 +301,13 @@
   border: 10px solid #C8A2C8; /* Borde lila grueso */
   border-radius: 10px; /* Bordes redondeados */
   margin-top: 2em;
-  height: 20em;
+  height: 22em;
 }
 .recuerdos {
-  margin-top: 3em;
+  margin-top: 2em;
+}
+.faceInsta {
+  color: #7a55aa;
 }
 
 .prev {
