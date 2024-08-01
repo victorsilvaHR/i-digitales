@@ -1,4 +1,4 @@
-<table class="table table-striped container">
+  <table class="table table-striped container">
     <thead class="text-center"> 
       <tr>
         <th scope="col" colspan="6" class="titulo-registro">REGISTRO</th> 
@@ -28,5 +28,11 @@
         </td>
       </tr>
     </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="6" class="text-end">
+          <button class="btn btn-primary me-md-2" type="button" (click)="generarPDF()">Descargar PDF</button>
+        </td>
+      </tr>
+    </tfoot>
   </table>
-  

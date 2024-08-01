@@ -34,6 +34,9 @@ export class RegistroComponent implements OnInit {
       );
     }
   }
+  generarPDF(){
+
+  }
 
 
 }
