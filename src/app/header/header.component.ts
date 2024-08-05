@@ -8,9 +8,12 @@ import { DataService } from '../servicios/db.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  nombre = ''
   isCollapsed = true;
-  owner = false;
+  user = {
+    nombre : '',
+    owner : false,
+    rol : '',
+  };
   
   constructor(
     private userService: UserService,
@@ -41,8 +44,9 @@ export class HeaderComponent implements OnInit {
     if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
       const uid = sessionStorage.getItem('uid');
       const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '');
-      this.nombre = usuario ? usuario.nombre : "";
-      this.owner = usuario ? usuario.owner : "";
+      this.user.nombre = usuario ? usuario.nombre : "";
+      this.user.owner = usuario ? usuario.owner : "";
+      this.user.rol = usuario ? usuario.paquete : "";
       return !!uid;
     } else {
       return false;
