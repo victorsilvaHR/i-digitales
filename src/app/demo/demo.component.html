@@ -24,7 +24,7 @@
         <p >
           <span class="pases">{{ invitacion.noInvitados }}</span> PASES
         </p>
-        <p>
+        <p *ngIf="invitacion.mesa > 0">
           MESA <span class="pases">{{ invitacion.noMesa }}</span>
         </p>
         <p>Cada familia tiene su historia. Bienvenidos a la nuestra.</p>

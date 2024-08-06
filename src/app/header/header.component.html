@@ -16,13 +16,13 @@
               <li class="nav-item">
                   <a class="nav-link" routerLink="/invitacion" routerLinkActive="active" (click)="collapseNavbar()">Invitación</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="user.rol != 'B'">
                   <a class="nav-link" routerLink="/registro" routerLinkActive="active" (click)="collapseNavbar()">Registro</a>
               </li>
-              <li *ngIf="owner" class="nav-item">
+              <li *ngIf="user.owner" class="nav-item">
                   <a class="nav-link" routerLink="/eventos" routerLinkActive="active" (click)="collapseNavbar()">Eventos</a>
               </li>
-              <li *ngIf="owner" class="nav-item">
+              <li *ngIf="user.owner" class="nav-item">
                   <a class="nav-link" routerLink="/usuarios" routerLinkActive="active" (click)="collapseNavbar()">Usuarios</a>
               </li>
               <li class="nav-item">
@@ -36,7 +36,7 @@
       
         
         <div class="d-flex flex-column align-items-end ms-auto">
-          <p class="Bienvenido mb-1">¡Bienvenido!  {{nombre}}</p>
+          <p class="Bienvenido mb-1">¡Bienvenido!  {{user.nombre}}</p>
           <button class="btn btn-danger btn-sm desktop" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
         </div>
       </div>

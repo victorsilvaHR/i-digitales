@@ -1,4 +1,9 @@
+<<<<<<< HEAD
   <table class="table table-striped container">
+=======
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+>>>>>>> 3e24a5f903615bffde8b2554fe12cf5a3df6bb2c
     <thead class="text-center"> 
       <tr>
         <th scope="col" colspan="6" class="titulo-registro">REGISTRO</th> 
@@ -19,12 +24,12 @@
         <td>{{ fila.descripcion }}</td>
         <td>{{ fila.noMesa}}</td>
         <td>
-          <img *ngIf="fila.leido"  width="48" height="48" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji">
-          <img *ngIf="!fila.leido"   width="48" height="48" src="https://img.icons8.com/papercut/60/delete-sign.png" alt="delete-sign"/>
+          <img *ngIf="fila.leido"  width="30" height="30" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji">
+          <img *ngIf="!fila.leido"   width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/minus-math.png" alt="minus-math"/>
         </td>
         <td>
-          <img *ngIf="fila.confAsistencia"  width="48" height="48" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji"/>
-          <img *ngIf="!fila.confAsistencia"   width="48" height="48" src="https://img.icons8.com/papercut/60/delete-sign.png" alt="delete-sign"/>
+          <img *ngIf="fila.confAsistencia"  width="30" height="30" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji"/>
+          <img *ngIf="!fila.confAsistencia"   width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/minus-math.png" alt="minus-math"/>
         </td>
       </tr>
     </tbody>
@@ -36,3 +41,4 @@
       </tr>
     </tfoot>
   </table>
+</div>
