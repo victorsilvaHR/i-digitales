@@ -10,6 +10,8 @@ import { PdfService } from '../servicios/PDF.service';  // Asegúrate de ajustar
 })
 export class RegistroComponent implements OnInit {
   resultQuery: any;
+  showButton: boolean = false;
+
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -29,6 +31,8 @@ export class RegistroComponent implements OnInit {
         (response: any) => {
           console.log('Consulta exitosa:', response);
           this.resultQuery = response;
+          const paquete = usuario.paquete;
+          this.showButton = paquete === 'P';
         },
         (error) => {
           console.error('Error en la consulta:', error);
