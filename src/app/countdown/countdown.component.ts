@@ -10,7 +10,7 @@ export class CountdownComponent implements OnInit, OnDestroy {
   hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
-  targetDate: Date = new Date('2024-12-31T00:00:00'); // Cambia esto a tu fecha objetivo
+  targetDate: Date = new Date('2025-10-18T00:00:00'); // Cambia esto a tu fecha objetivo
   private intervalId: any;
 
   ngOnInit() {

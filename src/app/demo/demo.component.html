@@ -1,309 +1,143 @@
-<div class="demo-component">
-<div class="background-container">
-    <div class="content">
-        <img src="assets/noviosPrueba.png" alt="noviosPrueba" class="imagen-fondo">
-    </div>
-    <h1 class="titulo text-center">Luis y Maria</h1>
-    <p class="subtitulo text-center">GUARDA ESTA FECHA</p>
-    <app-countdown></app-countdown>
-    </div>
-    <div>
+<div class="seccion-imagen">
+  <img src="assets/principal.jpg" alt="noviosPrueba" class="imagen-superior" />
+</div>
+
+  <div>
     <button class="play-button" (click)="togglePlay()">
       <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
-  </button>
-  <audio #audio>
+    </button>
+    <audio #audio>
       <source src="assets/usted.mp3" type="audio/mpeg">
-  </audio>
+    </audio>
+  </div>
+  
+  
+  <div class="fondo text-center">
+
+    <div>
+      <h1 class="titulo tangerine">Gabriela &amp; Dennys</h1>
+      <p class="raleway fecha">18 octubre 2025</p>
+      <app-countdown></app-countdown>
+
+      <div class="">
+        <p class=" "></p>
+        <p class="raleway donde">Lugar</p>
+        <p class="jardin tangerine">Jardín San Rafael</p>
+        <p id="direccion raleway">C. del Panteón 20, Atlacomulco 62560 <br>
+           Jiutepec, Morelos.</p>
+<a href="https://maps.app.goo.gl/G5MiKnmgGSk11cKT8" target="_blank" class="btn btn-ver-mapa">VER MAPA</a>
+        <p class="padrinos"></p>
+      </div>
+
+<div class="stacked-carousel">
+  <div *ngFor="let foto of fotos; let i = index"
+       class="card"
+       [ngClass]="{
+         'active': i === currentIndex,
+         'previous': i === currentIndex - 1 || (currentIndex === 0 && i === fotos.length - 1),
+         'two-behind': i === currentIndex - 2 || (currentIndex <= 1 && i >= fotos.length - 2)
+       }">
+    <img [src]="foto" [alt]="'Foto ' + (i + 1)">
+  </div>
+</div>
+
+      <div>
+        <p class="raleway dress">Dress Code</p>
+        <p class="texto-negritas">Reserva el blanco para las novias</p>
+        <p class="tangerine cocktail">Cocktail Formal</p>
+        <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn">Ejemplo</a>
+        </div>
+<div class="imagen-itinerario raleway">
+  <p class="iti raleway">Itinerario</p>
+
+  <div class="itinerario-con-espejo">
+    <img src="assets/itinerario.jpg" class="itinerario">
+    <img src="assets/espejo.jpg" class="tira-espejo inferior">
+  </div>
 </div>
 
 
-    <div class="fondo text-center">
-      <div>
-        <p class="subtitulo2 ">Nos casamos</p>
-        <p class="invitado">{{ invitacion.nombre }}</p>
-        <p >
-          <span class="pases">{{ invitacion.noInvitados }}</span> PASES
-        </p>
-        <p *ngIf="invitacion.mesa > 0">
-          MESA <span class="pases">{{ invitacion.noMesa }}</span>
-        </p>
-        <p>Cada familia tiene su historia. Bienvenidos a la nuestra.</p>
-        <img src="assets/manosnovios.png" alt="manosnovios" class="imagen-manos">
-        <p class="text">Ya no son dos, sino un solo ser. Por tanto, lo que Dios ha unido, que no lo separe nadie. Estás cordialmente 
-          invitado a acompañarnos en Nuestra unión matrimonial.</p>
-        <P >Con la bendición de nuestros padres y padrinos, tenemos el placer de invitarles a 
-          ser testigos de nuestra unión.</P>
-      </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="padres-de-la-novia">
-                        <p class="padres">Padres de la novia</p>
-                        <p>José Luis Blé Ugalde</p>
-                        <p>Maribel González Puertos</p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="padres-del-novio">
-                        <p class="padres">Padres del novio</p>
-                        <p>J. Asención Escutia Valdez</p>
-                        <p>Alicia Ríos Medina</p>
-                    </div>
-                </div>
-            </div>
-          <div>
-            <p class="donde">Dónde y Cuándo</p>
-            <p>Sábado, 30 de Marzo 2024</p>
-            <p>Recepción: 3:00 p.m.</p>
-            <p>Ceremonia: 4:00 p.m.</p>
-            <p>“Jardín Quinta Real“.</p>
-            <p id="direccion">Real Miguel Hidalgo 1000, Ahuatepec, 62300 Cuernavaca, Morelos, México.</p>
-            <a href="https://maps.app.goo.gl/bnHWaQZG8TeyLnua7" target="_blank" class="btn">VER MAPA</a>
-            <p class="padrinos">Padrinos de Bodas</p>
-            <p>Sin ellos no sería igual.</p>
-          </div>
-            
-            <div class="carrusel-container">
-                <div id="carouselExample1" class="carousel slide" data-bs-ride="carousel">
-                  <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExample1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExample1" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExample1" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  </div>
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div class="d-block w-100">
-                        <h5>Jose Luis Ble</h5>
-                        <p class="padrinos2">Padrino de Invitaciones.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-block w-100">
-                        <h5>Carlos Lazo</h5>
-                        <p class="padrinos2">Padrino de Vino.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-block w-100">
-                        <h5>Liliana Arellano</h5>
-                        <p class="padrinos2">Madrina de recuerdos.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample1" data-bs-slide="prev">
-                    <i class="fa-solid fa-chevron-left prev"></i>
-                    <span class="visually-hidden">Anterior</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample1" data-bs-slide="next">
-                    <i class="fa-solid fa-chevron-right next"></i>
-                    <span class="visually-hidden">Siguiente</span>
-                  </button>
-                </div>
-              </div>
-              
-             <div>
-              <p class="drescode">Dres Code</p>
-              <p class="formal">FORMAL</p>
-               <p class="">El color lila está reservado para las damas de honor y el blanco para la novia.</p>
-              </div>
-               <div class="row">
-                <div class="col-6 col-md-6 text-center">
-                    <img src="assets/traje.png" alt="Traje" class="img-fluid mb-2">
-                    <p>Traje y corbata</p>
-                </div>
-                <div class="col-6 col-md-6 text-center">
-                    <img src="assets/vestidoLargo.png" alt="Vestido" class="img-fluid mb-2">
-                    <p>Vestido largo</p>
-                </div>
-            </div>
 
-            <p class="programa">Programa</p>
-            <p>¡No te lo puedes perder!</p>
-            
-            <div class="row program-container">
-                <div class="col-12 col-md-4 program-item">
-                    <img src="https://invites-now.com/wp-content/uploads/2023/11/icon-icono-boda-lila.png" alt="Recepción" class="img-fluid mb-2">
-                    <p class="programa2">Recepción</p>
-                    <p>Llega a tiempo, y ve en primera fila nuestros mejores momentos.</p>
-                </div>
-                <div class="col-12 col-md-4 program-item">
-                    <img src="https://invites-now.com/wp-content/uploads/2023/11/icono-ramo-lila-2.png" alt="Ceremonia" class="img-fluid mb-2">
-                    <p class="programa2">Ceremonia</p>
-                    <p>Acompáñanos a unir nuestras vidas.</p>
-                </div>
-                <div class="col-12 col-md-4 program-item">
-                    <img src="https://invites-now.com/wp-content/uploads/2023/04/icono-copas.png" alt="Coctelería" class="img-fluid mb-2">
-                    <p class="programa2">Coctelería</p>
-                    <p>Disfruta de un rico cocktail y aperitivo.</p>
-                </div>
-                <div class="col-12 col-md-4 program-item">
-                    <img src="https://invites-now.com/wp-content/uploads/2023/04/icono-cena.png" alt="Banquete" class="img-fluid mb-2">
-                    <p class="programa2">Banquete</p>
-                    <p>Disfrutaremos de una deliciosa cena.</p>
-                </div>
-                <div class="col-12 col-md-4 program-item">
-                    <img src="https://invites-now.com/wp-content/uploads/2023/04/Icono-anillos.png" alt="Primer Baile" class="img-fluid mb-2">
-                    <p class="programa2">Primer Baile</p>
-                    <p>Acompáñanos al momento más emotivo de la fiesta.</p>
-                </div>
-                <div class="col-12 col-md-4 program-item">
-                    <img src="https://invites-now.com/wp-content/uploads/2023/04/icono-baile.png" alt="Baile" class="img-fluid mb-2">
-                    <p class="programa2">Baile</p>
-                    <p>Impresiónanos con los prohibidos.</p>
-                </div>
-            </div>
-            <p class="hospedaje">Hospedaje</p>
-            <p>Para una estadía más placentera te compartimos estas sugerencias de hospedaje.</p>
 
-            <div class="carrusel-container">
-                <div id="carouselExample2" class="carousel slide" data-bs-ride="carousel">
-                 
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <div class="d-block w-100">
-                        <h5 class="hospedaje2">Suite en Cuernavaca</h5>
-                        <p>Real Miguel Hidalgo 1000 Ahuatepec,62300 Cuernavaca, Morelos, Mexico.</p>
-                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" 
-                        target="_blank" class="btn">CONOCER MÁS</a>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-block w-100">
-                        <h5 class="hospedaje2">Recidencia Cuernavaca</h5>
-                        <p>Real Miguel Hidalgo 1000 Ahuatepec,62300 Cuernavaca, Morelos, Mexico..</p>
-                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6" 
-                        target="_blank" class="btn">CONOCER MÁS</a>
+        <p class="donde raleway">Mesa de regalos</p>
+<p class="px-3 px-md-0 raleway">
+  Tu presencia es nuestro mayor regalo, pero si quieres tener un detalle con nosotros te damos estas sugerencias.
+</p>
 
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <div class="d-block w-100">
-                        <h5 class="hospedaje2">Alojamiento Vacacional Cuernavacang</h5>
-                        <p>Real Miguel Hidalgo 1000 Ahuatepec,62300 Cuernavaca, Morelos, Mexico.</p>
-                        <a href="https://www.airbnb.mx/rooms/22983255?guests=1&check_out=2024-03-31&check_in=2024-03-30&adults=1&viralityEntryPoint=1&s=76&source_impression_id=p3_1721240792_P3NZCJnq_jsGG0E6"
-                         target="_blank" class="btn">CONOCER MÁS</a>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample2" data-bs-slide="prev">
-                    <i class="fa-solid fa-chevron-left prev"></i>
-                    <span class="visually-hidden">Previous</span>
-                  </button>
-                  <button class="carousel-control-next " type="button" data-bs-target="#carouselExample2" data-bs-slide="next">
-                    <i class="fa-solid fa-chevron-right next"></i>
-                    <span class="visually-hidden">Next</span>
-                  </button>
-                </div>
-              </div>
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-6">
-                    <p class="dije">Dije que sí...</p>
-                    <p>
-                      Amar a alguien es una cosa.
-                      Que alguien te ame es otra.
-                      Pero que te ame la misma persona que amas, lo es todo.
-                    </p>
-                    <p class="dije">- Paulo Coelho</p>
-                  </div>
-                  
-                  <div class="col-md-6">
-                    <div id="carouselExample3" class="carousel slide" data-bs-ride="carousel">
-                      <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExample3" data-bs-slide-to="0" class="active"></button>
-                        <button type="button" data-bs-target="#carouselExample3" data-bs-slide-to="1"></button>
-                        <button type="button" data-bs-target="#carouselExample3" data-bs-slide-to="2"></button>
-                      </div>
-                      
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img src="assets/novios2.jpg" class="d-block w-100" alt="Slide 1">
-                        </div>
-                        <div class="carousel-item active">
-                          <img src="assets/novios3.jpg" class="d-block w-100" alt="Slide 2">
-                        </div>
-                        <div class="carousel-item active">
-                          <img src="assets/novios4.jpg" class="d-block w-100" alt="Slide 3">
-                        </div>
-                      </div>
-                      
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample3" data-bs-slide="prev">
-                        <i class="fa-solid fa-chevron-left prev"></i>
-                        <span class="visually-hidden">Previous</span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample3" data-bs-slide="next">
-                        <i class="fa-solid fa-chevron-right next"></i>
-                        <span class="visually-hidden">Next 
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <p class="mesa">Mesa de regalos</p>
-              <p class="">Tu presencia es nuestro mayor regalo, pero si quieres tener un detalle con nosotros te damos estas sugerencias.</p>
-              
-              <div class="container">
-                <div class="box">
-                  <img src="https://invites-now.com/wp-content/uploads/2023/07/pngwing.com-2-e1688762116271.png"  class="img">
-                  <a href="https://www.amazon.com.mx/hz/wishlist/ls/Z16XQX99P54O?ref_=wl_share" target="_blank" class="btn">VER MESA</a>
-                </div>
-            </div>
 
-            <div class="memories-box">
-              <p class="recuerdos">Nuestros recuerdos</p>
-              <p class="hashtag">Hashtag</p>
-              <p>No olvides etiquetarnos en todas tus publicaciones de Instagram y Facebook utilizando nuestro Hashtag…</p>
-              <div class="faceInsta">
-                <i class="fa-brands fa-facebook mx-2"></i>
-                <i class="fa-brands fa-instagram mx-2"></i>
-              </div>
-              <p class="fotos">#bodabrendayrodrigo</p>
 
-              </div>
-
-         <div>
-            <p class="consideraciones">Consideraciones</p>
-            <P> Queremos que sea un día perfecto como lo hemos soñado, ayúdanos a hacerlo posible.</P>
-            <p class="no">NO NIÑOS</p>
-           <p>Nos encantaría que esta celebración también la disfrutes tanto como nosotros, por eso hemos decidido que sea solo para adultos.</p>
-           <p class="consideraciones">Confirmar asistencia</p>
-           <p>Favor de confirmar tu asistencia lo antes posible.</p>
-          </div>
-           <div class="confirmation-container">
-           <div class="confirmation-box">
-           <p>¿ASISTIRÁS A NUESTRA BODA?</p>
-            <div class="d-flex justify-content-between respuestas">
         
-                  <label class="">
-                    <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> 
-                  Asistiré
-                  </label>
-          
-                  <label class="">
-                  <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false>  
-                  No asistiré
-                  </label>
-            </div>
+      <div class="container">
+  <div class="box">
+    <img src="assets/liverpool.png" class="img">
+    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51685057" target="_blank" class="btn">VER MESA</a>
+  </div>
+</div>
 
-            <button class="btn confirm-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-              (click)="confirmar()" [disabled]="botonActivo">
-              CONFIRMAR
-            </button>  
-           </div>
+<div id="carruselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+  <div class="carousel-inner">
 
-        <div class="modal fade text-center" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">¡Gracias por tu confirmación!</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-            </div>
-          </div>
+    <div class="carousel-item active">
+      <img src="assets/DS1.jpg" class="d-block w-100" alt="Foto 1">
+    </div>
+
+    <div class="carousel-item" *ngFor="let i of [2,3,4,5,6,7,8,9,10,11]">
+      <img [src]="'assets/DS' + i + '.jpg'" class="d-block w-100" [alt]="'Foto ' + i">
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carruselFotos" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carruselFotos" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </button>
+</div>
+
+<div class="tarjeta text-center p-4 rounded shadow-sm bg-light">
+  <p class="raleway hospedaje mb-3">
+    Recomendaciones de hospedaje
+  </p>
+
+  <a href="assets/RECOMENDACIONES DE HOSPEDAJE BODAG&A.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg px-4">
+    Ver Información
+  </a>
+</div>
+
+
+
+
+
+
+      <div class="confirmation-container">
+        <div class="confirmation-box">
+        <p>¿ASISTIRÁS A NUESTRA BODA?</p>
+<p class="evento">Evento exclusivo para adultos</p>
+         <div class="d-flex justify-content-between respuestas">
+     
+               <label class="">
+                 <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> 
+               Asistiré
+               </label>
+       
+               <label class="">
+               <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false>  
+               No asistiré
+               </label>
+         </div>
+
+         <button class="btn confirm-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+           (click)="confirmar()" [disabled]="botonActivo">
+           CONFIRMAR
+         </button>  
         </div>
       </div>
+
     </div>
   </div>
+
+  
 
 
 

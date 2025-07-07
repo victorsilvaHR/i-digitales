@@ -2,8 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
@@ -12,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 export class DemoComponent implements OnInit {
   @ViewChild('audio', { static: true }) audio!: ElementRef<HTMLAudioElement>;
   isPlaying = false;
-  parametro : string  | null  ;
+  parametro: string | null;
   title = 'mi-app';
   body = {
-    id : '',
+    id: '',
     asistencia: false
   };
   invitacion: any = {
@@ -23,59 +21,61 @@ export class DemoComponent implements OnInit {
     noInvitados: '',
     noMesa: ''
   };
-  botonActivo = true
+  botonActivo = true;
+  fotos: string[] = [];
+  currentIndex: number = 0;
 
   constructor(
     private apiService: ApiService,
     private route: ActivatedRoute
-  ){ this.parametro = this.route.snapshot.paramMap.get('id');
+  ) {
+    this.parametro = this.route.snapshot.paramMap.get('id');
   }
-
 
   ngOnInit(): void {
     if (this.parametro) {
       this.body.id = this.parametro;
     }
 
-    this.apiService.getById('invitaciones', 'id', this.parametro +'') .subscribe(
+    this.apiService.getById('invitaciones', 'id', this.parametro + '').subscribe(
       (response: any) => {
         console.log('Consulta exitosa:', response);
         this.invitacion.nombre = response[0].nombre;
-        this.invitacion.noInvitados = response[0].noInvitados
-        this.invitacion.noMesa = response[0].noMesa
-
+        this.invitacion.noInvitados = response[0].noInvitados;
+        this.invitacion.noMesa = response[0].noMesa;
       },
       (error) => {
         console.error('Error en la consulta:', error);
       }
     );
- 
-  
 
     this.apiService.leido(this.body).subscribe(
       (response: any) => {
-        console.log('Confirmacion de lectura con exito:', response);
+        console.log('Confirmación de lectura con éxito:', response);
       },
       (error: any) => {
         console.error('Error al crear la invitación:', error);
       }
     );
+
+    this.fotos = Array.from({ length: 13 }, (_, i) => `assets/foto${i + 1}.jpg`);
   }
- 
-  
-  confirmar(){
-  this.apiService.confirmar(this.body).subscribe(
-    (response: any) => {
-      console.log(' Confirmacion exitosa:', response);
-    },
-    (error: any) => {
-      console.error('Error al confirmar la invitación:', error);
-    }
-  );
+
+  confirmar() {
+    this.apiService.confirmar(this.body).subscribe(
+      (response: any) => {
+        console.log('Confirmación exitosa:', response);
+      },
+      (error: any) => {
+        console.error('Error al confirmar la invitación:', error);
+      }
+    );
   }
-  asistencia(){
-    this.botonActivo = false
+
+  asistencia() {
+    this.botonActivo = false;
   }
+
   togglePlay() {
     const audio = this.audio.nativeElement;
 
@@ -87,4 +87,16 @@ export class DemoComponent implements OnInit {
 
     this.isPlaying = !this.isPlaying;
   }
+
+nextFoto() {
+  this.currentIndex = (this.currentIndex + 1) % this.fotos.length;
+}
+
+getPreviousIndex(): number {
+  return (this.currentIndex - 1 + this.fotos.length) % this.fotos.length;
+}
+
+getTwoBehindIndex(): number {
+  return (this.currentIndex - 2 + this.fotos.length) % this.fotos.length;
+}
 }

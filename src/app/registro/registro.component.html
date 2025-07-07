@@ -10,7 +10,7 @@
         <th scope="col">Descripción</th>
         <th scope="col">Mesa</th>
         <th scope="col">Visto</th>
-        <th scope="col">Confirmacion </th>
+        <th scope="col">Confirmacion</th>
       </tr>
     </thead>
     <tbody>
@@ -30,6 +30,12 @@
       </tr>
     </tbody>
     <tfoot>
+      <tr>
+        <td colspan="4" class="text-end">Total de Personas:</td>
+        <td colspan="2">
+          <input type="number" class="form-control" [value]="totalInvitados" readonly />
+        </td>
+      </tr>
       <tr>
         <td colspan="6" class="text-end">
           <button  *ngIf="showButton" class="btn btn-primary me-md-2" type="button" (click)="generarPDF()">Descargar PDF</button>

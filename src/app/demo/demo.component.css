@@ -1,24 +1,83 @@
 .demo-component {
     overflow-x: hidden;
+    margin-top: 15em;
 
 }
-.imagen-fondo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    z-index: -1; 
-  }
-  .titulo {
-    color: #FFFFFF;
-    font-size: 65px;
-    font-family: "Pinyon Script", cursive;
-    font-weight: 400;
-    font-style: normal;
-    margin-top: 3em;
-  }
+.mesa {
+
+}
+.seccion-imagen {
+  width: 100%;
+  overflow: hidden;
+}
+.fecha{
+  font-size: 20px;
+  margin-top: 25px;
+
+}
+.dress{
+  margin-top: 60px;
+  font-size: 20px;
+}
+
+.cocktail{
+  font-size: 25px;
+}
+
+.imagen-superior {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.tangerine {
+  font-family: 'Tangerine', cursive;
+  font-size: 47px;
+  color: black;
+}
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400; /* o 400, 700, etc. */
+}
+.btn-ver-mapa {
+  font-family: 'Raleway', sans-serif !important; /* o cualquier otra que estés usando para el resto del sitio */
+  font-size: 600;
+}
+.box {
+  text-align: center; /* Centra la imagen y el botón horizontalmente */
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 15px; /* <-- Añade separación debajo de la imagen */
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c10000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+
+
+.titulo {
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 18px;
+  font-size: 90px; /* o incluso 100px si quieres algo muy llamativo */
+  white-space: normal;
+  overflow-wrap: break-word;
+  text-align: center;
+  padding: 0 10px;
+}
+
   .subtitulo {
     color: white;
     margin-top: 1em;
@@ -28,28 +87,40 @@
     padding: 0;
     height: 100%;
   }
-  .background-container {
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1; 
-    overflow-x: hidden;
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.seccion-imagen {
+  width: 100%;
+  overflow: hidden;
+}
 
-  }
+.imagen-superior {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+
   .subtitulo2  {
     font-family: "Pinyon Script", cursive;
-    color: purple;
     font-size: 48px;
     margin-top: 10em;
 
 
   }
   .fondo {
-    background-color: #f0f0f0; 
+    background-color: transparent; 
     text-align: left;
     height: 6000px; 
     margin-left: 0px;
@@ -79,18 +150,78 @@
   font-size: 48px;
 
 }
+.jardin{
+    font-size: 40px;
+
+}
 .padres {
   margin-bottom: 10px; /* Ajusta el margen inferior de los títulos de padres */
 }
 .donde {
-  font-family: "Pinyon Script", cursive;
-  color: purple;
-  font-size: 40px;
+  font-size: 20px;
+  margin-top: 4em;
+}
+
+.imagen-itinerario {
+  text-align: center;
+  margin: 2em 0;
+}
+
+.iti {
+  font-size: 20px;
   margin-top: 1em;
 }
+
+.itinerario-con-espejo {
+  position: relative;
+  display: inline-block;
+  width: 600px;
+  max-width: 90%;
+}
+
+.itinerario {
+  width: 100%;
+  height: auto;
+  display: block;
+  z-index: 2;
+  position: relative;
+}
+
+.tira-espejo {
+  width: 80vw;       /* ancho 80% de la ventana */
+  height: auto;      /* altura automática según ancho */
+  display: block;
+  margin: 0 auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.btn-outline-primary {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+
+
+
+
+
+
 .btn{
-  background-color: #7a55aa;
+  background-color: #697960;
   color: white;
+  margin-top: -15px;
+
 }
 .padrinos {
   font-family: "Pinyon Script", cursive;
@@ -130,6 +261,10 @@
 .formal {
   margin-top: 1em;
 }
+.texto-negritas {
+  font-weight: bold;
+}
+
 .img-fluid {
   max-width: 50px; /* Ajusta el tamaño máximo de las imágenes según tus necesidades */
   height: auto;
@@ -144,12 +279,7 @@
   color: purple;
   font-size: 2em;
 }
-.hospedaje {
-  font-family: "Pinyon Script", cursive;
-  color: purple;
-  font-size: 2em;
-  margin-top: 2em;
-}
+
 .hospedaje2 {
   font-family: "Pinyon Script", cursive;
   color: purple;
@@ -195,10 +325,16 @@
 .carousel-indicators .active {
   background-color: #fff;
 }
-.dije , .mesa , .consideraciones {
-  font-family: "Pinyon Script", cursive;
-  color: purple;
+.dije  .consideraciones {
+  /* font-family: "Pinyon Script", cursive; */
+  color: black;
   font-size: 2em;
+}
+.mesa {
+   font-size: 20px;
+    margin-top: 1em;
+
+
 }
 .hashtag {
   font-family: "Pinyon Script", cursive;
@@ -212,16 +348,22 @@
 }
 .box {
   padding: 20px;
-  width: 331px;  /* Aumenta el ancho */
-  height: 342px;  /* Aumenta la altura */
+  width: 320px;  /* Aumenta el ancho */
+  height: 175px;  /* Aumenta la altura */
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
   box-shadow: 0 4px 8px rgba(135, 132, 132, 0.825);  /* Añade sombra */
 }
 .img {
   width: 15em;
+}
+
+  .evento {
+  font-weight: bold;     /* Negritas */
+  font-size: 18px;     /* Aumenta el tamaño del texto */
+
 }
 
 .no {
@@ -249,7 +391,6 @@
   flex-direction: column;
   justify-content: center;
   /* align-items: center; */
-  box-shadow: 0 4px 8px rgba(21, 21, 21, 0.1);
   text-align: center;
   margin-bottom: 12em;
 
@@ -269,13 +410,14 @@
     padding: 10px 20px;
     color: #fff;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
+    background-color: #697960;
+
 }
 
 .confirm-btn:hover {
-    background-color: purple; /* Ajusta el color según tu diseño */
+    background-color: #697960; /* Ajusta el color según tu diseño */
 }
 .radio-group {
   display: flex;
@@ -322,7 +464,7 @@
   position: fixed;
   bottom: 160px;
   right: 20px;
-  background-color: #ff4081;
+  background-color: black;
   border: none;
   color: white;
   padding: 5px;
@@ -344,10 +486,82 @@
 .respuestas{
   margin-top: 1rem;
 }
+.stacked-carousel {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 1;
+  background-color: transparent;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card.active {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotate(0deg);
+  z-index: 3;
+}
+
+.card.previous {
+  opacity: 0.6;
+  transform: translateY(25px) scale(0.9) rotate(-10deg);
+  z-index: 2;
+}
+
+.card.two-behind {
+  opacity: 0.3;
+  transform: translateY(40px) scale(0.85) rotate(10deg);
+  z-index: 1;
+}
+
+.hospedaje{
+  font-size: 2opx;
+  margin-top: 20px;
+}
+
+.hospedaje {
+  font-size: 20px; /* un tamaño más grande */
+  margin-bottom: 20px; /* margen debajo del texto para separar del botón */
+}
+
+.tarjeta {
+  max-width: 400px; /* ancho máximo para que no sea muy ancho */
+  margin: 30px auto; /* margen arriba y abajo, centrado horizontalmente */
+  background-color: #f8f9fa; /* fondo claro tipo tarjeta */
+  border-radius: 10px; /* bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
+  padding: 20px; /* espacio interno */
+}
+
+
+
+
+
 
 
 
 @media (max-width: 600px){
+  .titulo {
+    font-size: 65px;
+  }
   .padrinos2 {
     font-size: 2em;
     height: 15rem;
@@ -373,5 +587,6 @@
 .fondo {
   height: auto; /* Ajustar la altura para que sea automática */
 }
+
   
 }

@@ -11,7 +11,7 @@ import { PdfService } from '../servicios/PDF.service';  // Asegúrate de ajustar
 export class RegistroComponent implements OnInit {
   resultQuery: any;
   showButton: boolean = false;
-
+  totalInvitados: number = 0;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -31,6 +31,7 @@ export class RegistroComponent implements OnInit {
         (response: any) => {
           console.log('Consulta exitosa:', response);
           this.resultQuery = response;
+          this.totalInvitados = this.calculateTotalInvitados();
           const paquete = usuario.paquete;
           this.showButton = paquete === 'P';
         },
@@ -39,6 +40,10 @@ export class RegistroComponent implements OnInit {
         }
       );
     }
+  }
+
+  calculateTotalInvitados(): number {
+    return this.resultQuery.reduce((total: number, fila: any) => total + fila.noInvitados, 0);
   }
 
   generarPDF(): void {
