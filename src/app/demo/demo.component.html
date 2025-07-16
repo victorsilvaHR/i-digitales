@@ -12,41 +12,49 @@
   </div>
   
   
-  <div class="fondo text-center">
+  <div class="text-center">
 
     <div>
       <h1 class="titulo tangerine">Gabriela &amp; Dennys</h1>
+      <div class="fondo-fecha-contador">
       <p class="raleway fecha">18 octubre 2025</p>
-      <app-countdown></app-countdown>
+     <app-countdown></app-countdown>
+     </div>
 
-      <div class="">
-        <p class=" "></p>
-        <p class="raleway donde">Lugar</p>
-        <p class="jardin tangerine">Jardín San Rafael</p>
-        <p id="direccion raleway">C. del Panteón 20, Atlacomulco 62560 <br>
-           Jiutepec, Morelos.</p>
-<a href="https://maps.app.goo.gl/G5MiKnmgGSk11cKT8" target="_blank" class="btn btn-ver-mapa">VER MAPA</a>
-        <p class="padrinos"></p>
-      </div>
+
+  <div class="contenedor-lugar">
+  <p class="raleway donde">Lugar</p>
+  <p class="jardin tangerine">Jardín San Rafael</p>
+  <p class="direccion raleway">
+    C. del Panteón 20, Atlacomulco 62560 <br>
+    Jiutepec, Morelos.
+  </p>
+  <a href="https://maps.app.goo.gl/G5MiKnmgGSk11cKT8" target="_blank" class="btn-ver-mapa">VER MAPA</a>
+</div>
+
 
 <div class="stacked-carousel">
-  <div *ngFor="let foto of fotos; let i = index"
+  <div *ngFor="let foto of fotosCarrusel1; let i = index"
        class="card"
        [ngClass]="{
-         'active': i === currentIndex,
-         'previous': i === currentIndex - 1 || (currentIndex === 0 && i === fotos.length - 1),
-         'two-behind': i === currentIndex - 2 || (currentIndex <= 1 && i >= fotos.length - 2)
+         'active': i === currentIndexCarrusel1,
+         'previous': i === currentIndexCarrusel1 - 1 || (currentIndexCarrusel1 === 0 && i === fotosCarrusel1.length - 1),
+         'two-behind': i === currentIndexCarrusel1 - 2 || (currentIndexCarrusel1 <= 1 && i >= fotosCarrusel1.length - 2)
        }">
     <img [src]="foto" [alt]="'Foto ' + (i + 1)">
   </div>
 </div>
 
-      <div>
-        <p class="raleway dress">Dress Code</p>
-        <p class="texto-negritas">Reserva el blanco para las novias</p>
-        <p class="tangerine cocktail">Cocktail Formal</p>
-        <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn">Ejemplo</a>
-        </div>
+
+<div class="contenedor-dresscode">
+  <p class="raleway dress">Dress Code</p>
+  <p class="aleway blanco">Reserva el blanco para las novias</p>
+  <p class="tangerine cocktail">Cocktail Formal</p>
+  <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn-ejemplo">EJEMPLO</a>
+</div>
+
+
+
 <div class="imagen-itinerario raleway">
   <p class="iti raleway">Itinerario</p>
 
@@ -70,74 +78,82 @@
       <div class="container">
   <div class="box">
     <img src="assets/liverpool.png" class="img">
-    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51685057" target="_blank" class="btn">VER MESA</a>
+    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51685057" target="_blank" class="btn-mesa">VER MESA</a>
   </div>
 </div>
 
 <div id="carruselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-  <div class="carousel-inner">
-
-    <div class="carousel-item active">
-      <img src="assets/DS1.jpg" class="d-block w-100" alt="Foto 1">
-    </div>
-
-    <div class="carousel-item" *ngFor="let i of [2,3,4,5,6,7,8,9,10,11]">
-      <img [src]="'assets/DS' + i + '.jpg'" class="d-block w-100" [alt]="'Foto ' + i">
-    </div>
-
+  <!-- Indicadores -->
+  <div class="carousel-indicators">
+    <button *ngFor="let i of fotosCarrusel2; let idx = index"
+            type="button"
+            data-bs-target="#carruselFotos"
+            [attr.data-bs-slide-to]="idx"
+            [class.active]="idx === 0"
+            [attr.aria-current]="idx === 0 ? 'true' : null"
+            [attr.aria-label]="'Slide ' + (idx + 1)">
+    </button>
   </div>
 
-  <button class="carousel-control-prev" type="button" data-bs-target="#carruselFotos" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carruselFotos" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </button>
+  <!-- Imágenes -->
+  <div class="carousel-inner">
+    <div *ngFor="let foto of fotosCarrusel2; let i = index" class="carousel-item" [class.active]="i === 0">
+      <img [src]="foto" class="d-block w-100" [alt]="'DS ' + (i + 1)">
+    </div>
+  </div>
 </div>
 
-<div class="tarjeta text-center p-4 rounded shadow-sm bg-light">
+
+
+
+
+<div class="tarjeta text-center ">
   <p class="raleway hospedaje mb-3">
     Recomendaciones de hospedaje
   </p>
-
-  <a href="assets/RECOMENDACIONES DE HOSPEDAJE BODAG&A.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg px-4">
-    Ver Información
+  <a href="assets/RECOMENDACIONES DE HOSPEDAJE BODAG&A.pdf" target="_blank" rel="noopener noreferrer" class="btn-recomendaciones">
+    VER
   </a>
+</div>
+
+<div class="confirmation-container raleway">
+  <div class="confirmation-box">
+    <p class="evento">Evento exclusivo para adultos</p>
+    <p class="reserva">Tenemos reservado para ti</p> 
+<p class="pases">{{ invitacion.noInvitados }} pases</p>
+
+    <div class="invitados-wrapper">
+      <label for="numeroInvitados" class="label-invitados">Ayúdanos a confirmar el número de asistentes:</label>
+      <select id="numeroInvitados" class="form-select select-invitados" [(ngModel)]="body.numeroInvitados" name="numeroInvitados">
+        <option *ngFor="let i of [1, 2, 3, 4, 5]" [value]="i">{{ i }}</option>
+      </select>
+    </div>
+
+    <p class="fecha-confirmacion">Confirma tu asistencia antes del 30 de agosto</p>
+
+    <button class="btn-confirmar mt-3" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="confirmar()" [disabled]="botonActivo">
+      CONFIRMAR
+    </button>  
+  </div>
 </div>
 
 
 
-
-
-
-      <div class="confirmation-container">
-        <div class="confirmation-box">
-        <p>¿ASISTIRÁS A NUESTRA BODA?</p>
-<p class="evento">Evento exclusivo para adultos</p>
-         <div class="d-flex justify-content-between respuestas">
-     
-               <label class="">
-                 <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> 
-               Asistiré
-               </label>
-       
-               <label class="">
-               <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false>  
-               No asistiré
-               </label>
-         </div>
-
-         <button class="btn confirm-btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-           (click)="confirmar()" [disabled]="botonActivo">
-           CONFIRMAR
-         </button>  
-        </div>
-      </div>
-
     </div>
   </div>
 
-  
+      <!-- <div class="d-flex justify-content-between respuestas">
+      <label>
+        <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> 
+        Asistiré
+      </label>
+
+      <label>
+        <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false>  
+        No asistiré
+      </label>
+    </div> -->
 
 
 

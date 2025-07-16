@@ -12,18 +12,23 @@ export class DemoComponent implements OnInit {
   isPlaying = false;
   parametro: string | null;
   title = 'mi-app';
+
   body = {
     id: '',
-    asistencia: false
+    asistencia: null,
+    numeroInvitados: 1
   };
+
   invitacion: any = {
     nombre: '',
     noInvitados: '',
-    noMesa: ''
+    // noMesa: ''
   };
+
   botonActivo = true;
-  fotos: string[] = [];
-  currentIndex: number = 0;
+  fotosCarrusel1: string[] = []; // foto1.jpg - foto13.jpg
+  fotosCarrusel2: string[] = []; // DS1.jpg - DS11.jpg
+  currentIndexCarrusel1: number = 0;
 
   constructor(
     private apiService: ApiService,
@@ -33,6 +38,8 @@ export class DemoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('Parámetro recibido desde URL:', this.parametro);
+
     if (this.parametro) {
       this.body.id = this.parametro;
     }
@@ -42,7 +49,7 @@ export class DemoComponent implements OnInit {
         console.log('Consulta exitosa:', response);
         this.invitacion.nombre = response[0].nombre;
         this.invitacion.noInvitados = response[0].noInvitados;
-        this.invitacion.noMesa = response[0].noMesa;
+        // this.invitacion.noMesa = response[0].noMesa;
       },
       (error) => {
         console.error('Error en la consulta:', error);
@@ -58,10 +65,16 @@ export class DemoComponent implements OnInit {
       }
     );
 
-    this.fotos = Array.from({ length: 13 }, (_, i) => `assets/foto${i + 1}.jpg`);
+    this.fotosCarrusel1 = Array.from({ length: 13 }, (_, i) => `assets/foto${i + 1}.jpg`);
+    this.fotosCarrusel2 = Array.from({ length: 11 }, (_, i) => `assets/DS${i + 1}.jpg`);
+
+     setInterval(() => {
+      this.nextFotoCarrusel1();
+    }, 3000);
   }
 
   confirmar() {
+      console.log('Número de invitados confirmados:', this.body.numeroInvitados);
     this.apiService.confirmar(this.body).subscribe(
       (response: any) => {
         console.log('Confirmación exitosa:', response);
@@ -78,25 +91,23 @@ export class DemoComponent implements OnInit {
 
   togglePlay() {
     const audio = this.audio.nativeElement;
-
     if (this.isPlaying) {
       audio.pause();
     } else {
       audio.play();
     }
-
     this.isPlaying = !this.isPlaying;
   }
 
-nextFoto() {
-  this.currentIndex = (this.currentIndex + 1) % this.fotos.length;
-}
+  nextFotoCarrusel1() {
+    this.currentIndexCarrusel1 = (this.currentIndexCarrusel1 + 1) % this.fotosCarrusel1.length;
+  }
 
-getPreviousIndex(): number {
-  return (this.currentIndex - 1 + this.fotos.length) % this.fotos.length;
-}
+  getPreviousIndex(): number {
+    return (this.currentIndexCarrusel1 - 1 + this.fotosCarrusel1.length) % this.fotosCarrusel1.length;
+  }
 
-getTwoBehindIndex(): number {
-  return (this.currentIndex - 2 + this.fotos.length) % this.fotos.length;
-}
+  getTwoBehindIndex(): number {
+    return (this.currentIndexCarrusel1 - 2 + this.fotosCarrusel1.length) % this.fotosCarrusel1.length;
+  }
 }

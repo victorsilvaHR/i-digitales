@@ -20,7 +20,7 @@
     "@angular/router": "~13.3.0",
     "@popperjs/core": "^2.11.8",
     "aos": "^2.3.4",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "^5.3.7",
     "firebase": "^10.12.2",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.2",
