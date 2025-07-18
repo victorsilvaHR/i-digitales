@@ -7,29 +7,29 @@ import { environment } from 'src/environments/environment';
     providedIn: 'root'
   })
   export class UserService {
-  createInvitacion(invitacion: { idEvento: string; nombre: string; noInvitados: string; descripcion: string; noMesa: string; }) {
-    throw new Error('Method not implemented.');
-  }
   
       constructor(private router: Router,) {}
   
       app = initializeApp(environment.firebaseConfig);
       private auth = getAuth();
-      private uid = '';
+      private uid: any = {}  ;
       private isLoggedIn = false;
       newUid = '';
   
-        async singIn(email: string, password: string): Promise<any> {
-          try {
-            const credentials = await signInWithEmailAndPassword(this.auth, email, password);
-            this.uid = credentials.user.uid;
-            this.loginUser();
-            this.router.navigateByUrl('/home');
-            return credentials.user;
-          } catch (error: any) {
-            console.log(error);
-          }
+      async singIn(email: string, password: string): Promise<any> {
+        try {
+          const credentials = await signInWithEmailAndPassword(this.auth, email, password);
+          this.uid = {
+            mail: credentials.user.email,
+            token: credentials.user.uid
+          };
+          console.log(this.uid)
+          this.loginUser();
+          return credentials.user;
+        } catch (error: any) {
+          console.log(error);
         }
+      }
       createUser(email: string, password: string): Promise<any>{
          return createUserWithEmailAndPassword(this.auth, email, password);
       }
@@ -42,16 +42,18 @@ import { environment } from 'src/environments/environment';
             });
       }
       loginUser() {
-        sessionStorage.setItem('uid', this.uid);
+        sessionStorage.setItem('mail',this.uid.mail );
+        sessionStorage.setItem('token',this.uid.token );
+
         this.isLoggedIn = true;
       }
       logOutUser(){
-        sessionStorage.removeItem('uid');
+        sessionStorage.removeItem('mail');
         sessionStorage.removeItem('currentUser');
         this.isLoggedIn = false;
       }
       getIsLoged (){
-        const sessionTrue = sessionStorage.getItem('uid');
+        const sessionTrue = sessionStorage.getItem('mail');
         this.isLoggedIn = sessionTrue !== null ? true : false;
         return this.isLoggedIn;
       }

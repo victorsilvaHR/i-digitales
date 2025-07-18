@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './servicios/guard.service';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path:'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path:'invitacion', component: InvitacionComponent ,  canActivate: [AuthGuard] },
   { path:'registro', component: RegistroComponent , canActivate: [AuthGuard]  },
   { path:'eventos', component: EventoComponent , canActivate: [AuthGuard]  },

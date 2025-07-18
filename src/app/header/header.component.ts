@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.validarSesion();
+    // this.validarSesion();
 
   }
   toggleNavbar() {
@@ -42,12 +42,12 @@ export class HeaderComponent implements OnInit {
   }
   validarSesion(){
     if (typeof window !== 'undefined' && typeof window.sessionStorage !== 'undefined') {
-      const uid = sessionStorage.getItem('uid');
-      const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '');
-      this.user.nombre = usuario ? usuario.nombre : "";
-      this.user.owner = usuario ? usuario.owner : "";
-      this.user.rol = usuario ? usuario.paquete : "";
-      return !!uid;
+      const mail = sessionStorage.getItem('mail');
+      // const usuario = JSON.parse(sessionStorage.getItem('currentUser') + '');
+      // this.user.nombre = usuario ? usuario.nombre : "";
+      // this.user.owner = usuario ? usuario.owner : "";
+      // this.user.rol = usuario ? usuario.paquete : "";
+      return !!mail;
     } else {
       return false;
     }

@@ -38,18 +38,16 @@ export class DemoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('Parámetro recibido desde URL:', this.parametro);
 
     if (this.parametro) {
       this.body.id = this.parametro;
     }
 
-    this.apiService.getById('invitaciones', 'id', this.parametro + '').subscribe(
+     this.apiService.getById('invitaciones', 'id', this.parametro + '').subscribe(
       (response: any) => {
         console.log('Consulta exitosa:', response);
         this.invitacion.nombre = response[0].nombre;
-        this.invitacion.noInvitados = response[0].noInvitados;
-        // this.invitacion.noMesa = response[0].noMesa;
+        this.invitacion.noInvitados = Number(response[0].noInvitados); // convierte a número
       },
       (error) => {
         console.error('Error en la consulta:', error);
@@ -83,6 +81,7 @@ export class DemoComponent implements OnInit {
         console.error('Error al confirmar la invitación:', error);
       }
     );
+    
   }
 
   asistencia() {

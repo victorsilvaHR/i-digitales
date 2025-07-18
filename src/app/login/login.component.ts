@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
   nombre : string = ''
 
   constructor(
-    private userService : UserService,private router: Router,
+    private userService : UserService,
+    private router: Router,
     private apiService: ApiService
   ) { 
     this.loginForm = new FormGroup({
@@ -42,12 +43,11 @@ export class LoginComponent implements OnInit {
   }
   async sendCredentials() {
     const { email, password } = this.loginForm.value;
-    console.log(email,password)
     if(!!email && !!password) {
       this.showSpiner = true;
       try {
         const user =  await this.userService.singIn(email, password);
-        this.userService.loginUser();
+
         this.showSpiner = false;
         this.router.navigate(['/home']);
         this.getUserById();
@@ -62,21 +62,20 @@ export class LoginComponent implements OnInit {
     } 
   }
   getUserById() {
-    const uid = sessionStorage.getItem('uid');
-    if (uid) {
-      this.apiService.getById('usuarios','uid',uid).subscribe(
+    const mail = sessionStorage.getItem('mail');
+    if (mail) {
+      this.apiService.getById('usuarios','email',mail).subscribe(
         (response) => {
           console.log('Datos del usuario:', response[0]);
-          this.nombre = response.nombre
+          this.nombre = response[0].nombreUser
           sessionStorage.setItem('currentUser',JSON.stringify(response[0]))
-
         },
         (error) => {
           console.error('Error al obtener los datos del usuario:', error);
         }
       );
     } else {
-      console.error('UID no encontrado en sessionStorage');
+      console.error('usuario no encontrado en sessionStorage');
     }
   }
  

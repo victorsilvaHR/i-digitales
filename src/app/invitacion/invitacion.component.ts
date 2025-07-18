@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
 
 @Component({
@@ -6,34 +6,51 @@ import { ApiService } from '../servicios/api.service';
   templateUrl: './invitacion.component.html',
   styleUrls: ['./invitacion.component.css']
 })
-export class InvitacionComponent {
+export class InvitacionComponent implements OnInit  {
 
   constructor(
     private apiService: ApiService
 
   ) { }
+  ngOnInit(): void {
+  this.setIdEvento();
+  }
   invitacion = {
     idEvento: '',
     nombre: '',
     noInvitados: '',
     descripcion: '',
     noMesa: '',
+    confirmacion: false,
+    invConfirmados: 0
   };
   error = false;
   invitacionData: any = null;
   mostrarInput: boolean = false;
   urlCompleta: string = '';
- 
+
+
+
+
+setIdEvento() {
+  const currentUserStr = sessionStorage.getItem('currentUser');
+  if (currentUserStr) {
+    const uid = JSON.parse(currentUserStr).uid;
+    this.invitacion.idEvento = uid;
+    sessionStorage.setItem('evento', JSON.stringify(uid));
+   
+  } else {
+    console.error('No se encontró currentUser en sessionStorage');
+  }
+}
+
+
   
   crear() {
     if (this.invitacion.nombre && this.invitacion.noInvitados && this.invitacion.descripcion) {
       this.error = false;
       this.invitacionData = this.invitacion; 
       console.log(this.invitacion);
-      
-      const currentUser = sessionStorage.getItem('currentUser');
-      const dataUser = JSON.parse(currentUser + '');
-      this.invitacion.idEvento = dataUser.idEvento;
   
       // this.concatenado = this.invitacion.nombre + this.invitacion.noInvitados + this.invitacion.descripcion + this.invitacion.noMesa + this.invitacion.idEvento;
       this.mostrarInput = true;
@@ -102,5 +119,7 @@ export class InvitacionComponent {
       });
     }
   }
+
+
 
 }
