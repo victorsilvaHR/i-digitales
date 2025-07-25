@@ -88,15 +88,16 @@ export class DemoComponent implements OnInit, AfterViewInit {
     }, 3000);
   }
 
-  ngAfterViewInit(): void {
-    const audioEl = this.audio.nativeElement;
-    audioEl.play().then(() => {
-      this.isPlaying = false; // Se pudo reproducir automáticamente
-    }).catch(err => {
-      console.warn('Autoplay bloqueado:', err);
-      this.isPlaying = false; // No se pudo reproducir, está pausado
-    });
-  }
+ngAfterViewInit(): void {
+  const audioEl = this.audio.nativeElement;
+
+  audioEl.play().then(() => {
+    this.isPlaying = true; // ✅ Música está sonando
+  }).catch(err => {
+    console.warn('Autoplay bloqueado:', err);
+  });
+}
+
 
 @HostListener('window:scroll', [])
 onWindowScroll() {
@@ -105,30 +106,31 @@ onWindowScroll() {
 
     const audioEl = this.audio.nativeElement;
 
-    // Intentar reproducir aquí, ya que el usuario interactuó (scroll)
-    audioEl.play().then(() => {
-      this.isPlaying = true;
-    }).catch(err => {
-      console.warn('Error al reproducir después del scroll:', err);
-      this.isPlaying = false;
-    });
+    // Pausar si se estaba reproduciendo
+    if (!audioEl.paused) {
+      audioEl.pause();
+      this.isPlaying = false; // ✅ icono en "play"
+    }
   }
 }
 
 
-  togglePlay() {
-    const audio = this.audio.nativeElement;
 
-    if (this.isPlaying) {
-      audio.pause();
-    } else {
-      audio.play().catch(err => {
-        console.warn('Error al reproducir:', err);
-      });
-    }
 
-    this.isPlaying = !this.isPlaying;
+togglePlay() {
+  const audio = this.audio.nativeElement;
+
+  if (this.isPlaying) {
+    audio.pause();
+  } else {
+    audio.play().catch(err => {
+      console.warn('Error al reproducir:', err);
+    });
   }
+
+  this.isPlaying = !this.isPlaying;
+}
+
 
 confirmar() {
   if (this.body.numeroInvitados === null) {

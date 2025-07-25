@@ -16,7 +16,7 @@ const routes: Routes = [
   { path:'eventos', component: EventoComponent , canActivate: [AuthGuard]  },
   { path:'usuarios', component: UsuariosComponent ,  canActivate: [AuthGuard] },
   { path: 'demo', component: DemoComponent },
-  { path: 'demo/:eventoId/:invitacionId', component: DemoComponent },
+  { path: 'A&G/:eventoId/:invitacionId', component: DemoComponent },
   { path:'login', component: LoginComponent },
   { path:'victor.hugo.silva01-bautizo/:id', component: DemoComponent  },
   { path:'', component: LoginComponent },

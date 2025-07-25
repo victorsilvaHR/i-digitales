@@ -1,15 +1,22 @@
-.table {
-    margin-top: 2em;
+.table-responsive {
+  width: 100%;
 }
+
+.table {
+  width: 100%;
+  margin: 0 auto; /* centrado horizontal */
+}
+
 .titulo-registro {
-    font-size: 2em; /* Tamaño de fuente más grande */
-    text-align: center; /* Centrado horizontal */
-    font-weight: bold; /* Negrita */
-    padding-bottom: 10px; /* Espaciado inferior opcional */
-    margin-top: 2em;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2em;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 767.98px) {
+  .table tfoot .btn {
+    width: 100%;
   }
-  @media (max-width: 767.98px) {
-    .table tfoot .btn {
-      width: 100%;
-    }
-  }
+}
