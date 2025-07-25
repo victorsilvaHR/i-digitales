@@ -9,9 +9,9 @@ import { PdfService } from '../servicios/PDF.service';  // Asegúrate de ajustar
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
-  resultQuery: any;
+  resultQuery: any[] = [];
   showButton: boolean = false;
-  totalInvitados: number = 0;
+  totalConfirmados: number = 0;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -23,28 +23,34 @@ export class RegistroComponent implements OnInit {
     this.getRegistroId();
   }
 
-  getRegistroId() {
-    if (isPlatformBrowser(this.platformId)) {
-      const currentUser = sessionStorage.getItem('currentUser');
-      const usuario = JSON.parse(currentUser + '');
-      this.apiService.getById('invitaciones', 'idEvento', usuario.idEvento).subscribe(
+getRegistroId() {
+  if (isPlatformBrowser(this.platformId)) {
+    const eventoRaw = sessionStorage.getItem('evento');    
+    if (eventoRaw) {
+      this.apiService.getById('invitaciones', 'idEvento', eventoRaw).subscribe(
         (response: any) => {
           console.log('Consulta exitosa:', response);
           this.resultQuery = response;
-          this.totalInvitados = this.calculateTotalInvitados();
-          const paquete = usuario.paquete;
-          this.showButton = paquete === 'P';
+          this.totalConfirmados = this.calculateTotalConfirmados();
         },
         (error) => {
           console.error('Error en la consulta:', error);
         }
       );
+    } else {
+      console.warn('No se encontró "evento" en sessionStorage');
     }
   }
+}
 
-  calculateTotalInvitados(): number {
-    return this.resultQuery.reduce((total: number, fila: any) => total + fila.noInvitados, 0);
-  }
+
+calculateTotalConfirmados(): number {
+  return this.resultQuery?.reduce((total: number, fila: any) => {
+    const valor = Number(fila.invConfirmados);
+    return total + (isNaN(valor) ? 0 : valor);
+  }, 0) || 0;
+}
+
 
   generarPDF(): void {
     this.pdfService.generarPDF(this.resultQuery);

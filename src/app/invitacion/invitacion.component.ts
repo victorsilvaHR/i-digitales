@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../servicios/api.service';
+declare var bootstrap: any;
+
 
 @Component({
   selector: 'app-invitacion',
@@ -7,6 +9,8 @@ import { ApiService } from '../servicios/api.service';
   styleUrls: ['./invitacion.component.css']
 })
 export class InvitacionComponent implements OnInit  {
+  @ViewChild('exampleModal') exampleModal!: ElementRef;
+
 
   constructor(
     private apiService: ApiService
@@ -21,7 +25,7 @@ export class InvitacionComponent implements OnInit  {
     noInvitados: '',
     descripcion: '',
     noMesa: '',
-    confirmacion: false,
+    confAsistencia	: false,
     invConfirmados: 0
   };
   error = false;
@@ -64,12 +68,23 @@ setIdEvento() {
 
 
           // Concatenar la URL
-          const urlBase = 'https://invitaciones-31afc.web.app';
+          // const urlBase = 'https://invitaciones-31afc.web.app';
+         const urlBase =  'http://localhost:4200/demo';
           const evento = this.invitacion.idEvento; 
           this.urlCompleta = `${urlBase}/${evento}/${id}`;
+this.invitacion = {
+  nombre: '',
+  noInvitados: '', // ← corregido aquí
+  descripcion: '',
+  noMesa: '',
+  idEvento: this.invitacion.idEvento, // si quieres mantener el mismo evento
+  confAsistencia: false,
+  invConfirmados: 0
+};
+
+
   
-          // Redirigir a la URL completa
-          // window.location.href = urlCompleta;
+       
         },
         (error: any) => {
           console.error('Error al crear la invitación:', error);
@@ -79,6 +94,7 @@ setIdEvento() {
     } else {
       this.error = true; 
     }
+    
   }
   
 
@@ -110,15 +126,28 @@ setIdEvento() {
   onModalClose() {
     this.limpiarCampos();
   }
-  copy(event: MouseEvent) {
-    if (this.urlCompleta) {
-      navigator.clipboard.writeText(this.urlCompleta).then(() => {
-        console.log('Id del Evento copiado al portapapeles');
-      }).catch(err => {
-        console.error('Error al copiar al portapapeles:', err);
-      });
+copiarUrl(inputElement: HTMLInputElement) {
+  inputElement.select();
+  inputElement.setSelectionRange(0, 99999); // Para móviles
+
+  try {
+    const success = document.execCommand('copy');
+    if (success) {
+      const modalElement = document.getElementById('exampleModal');
+      const modal = new bootstrap.Modal(modalElement);
+      modal.show();
+    } else {
+      console.error('No se pudo copiar la URL');
     }
+  } catch (err) {
+    console.error('Error al copiar:', err);
   }
+
+  inputElement.setSelectionRange(0, 0);
+  inputElement.blur();
+}
+
+
 
 
 

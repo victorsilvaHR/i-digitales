@@ -8,21 +8,17 @@
         <th scope="col">Invitado</th>
         <th scope="col">Num. Personas</th>
         <th scope="col">Descripción</th>
-        <th scope="col">Mesa</th>
-        <th scope="col">Visto</th>
         <th scope="col">Confirmacion</th>
+
+    
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let fila of resultQuery" class="text-center">
         <td>{{ fila.nombre }}</td>
-        <td>{{ fila.noInvitados}}</td>
+        <td>{{ fila.invConfirmados	}}</td>
         <td>{{ fila.descripcion }}</td>
-        <td>{{ fila.noMesa}}</td>
-        <td>
-          <img *ngIf="fila.leido"  width="30" height="30" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji">
-          <img *ngIf="!fila.leido"   width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/minus-math.png" alt="minus-math"/>
-        </td>
+    
         <td>
           <img *ngIf="fila.confAsistencia"  width="30" height="30" src="https://img.icons8.com/emoji/48/check-mark-emoji.png" alt="check-mark-emoji"/>
           <img *ngIf="!fila.confAsistencia"   width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/minus-math.png" alt="minus-math"/>
@@ -31,9 +27,9 @@
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="4" class="text-end">Total de Personas:</td>
+        <td colspan="4" class="text-end">Total de Personas Confirmadas:</td>
         <td colspan="2">
-          <input type="number" class="form-control" [value]="totalInvitados" readonly />
+          <input type="number" class="form-control" [value]="totalConfirmados" readonly />
         </td>
       </tr>
       <tr>

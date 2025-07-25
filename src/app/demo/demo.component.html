@@ -2,16 +2,19 @@
   <img src="assets/principal.jpg" alt="noviosPrueba" class="imagen-superior" />
 </div>
 
-  <div>
-    <button class="play-button" (click)="togglePlay()">
-      <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
-    </button>
-    <audio #audio>
-      <source src="assets/usted.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-  
-  
+<div>
+  <button 
+    class="play-button" 
+    *ngIf="showButton"
+    (click)="togglePlay()">
+    <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+  </button>
+
+  <audio #audio>
+    <source src="assets/usted.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
   <div class="text-center">
 
     <div>
@@ -50,13 +53,13 @@
   <p class="raleway dress">Dress Code</p>
   <p class="aleway blanco">Reserva el blanco para las novias</p>
   <p class="tangerine cocktail">Cocktail Formal</p>
-  <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn-ejemplo">EJEMPLO</a>
+  <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn-ejemplo">VER EJEMPLO</a>
 </div>
 
 
 
 <div class="imagen-itinerario raleway">
-  <p class="iti raleway">Itinerario</p>
+  <p class="iti raleway">ITINERARIO</p>
 
   <div class="itinerario-con-espejo">
     <img src="assets/itinerario.jpg" class="itinerario">
@@ -119,26 +122,72 @@
 <div class="confirmation-container raleway">
   <div class="confirmation-box">
     <p class="evento">Evento exclusivo para adultos</p>
-    <p class="reserva">Tenemos reservado para ti</p> 
-<p class="pases">{{ invitacion.noInvitados }} pases</p>
+<!-- Sección que se oculta al confirmar -->
+<div *ngIf="!confirmado" class="text-center">
+  <p class="reserva">Tenemos reservado para ti</p> 
+  <p class="pases">{{ invitacion.noInvitados }} pases</p>
 
-    <div class="invitados-wrapper">
-      <label for="numeroInvitados" class="label-invitados">Ayúdanos a confirmar el número de asistentes:</label>
-      <select id="numeroInvitados" class="form-select select-invitados" [(ngModel)]="body.numeroInvitados" name="numeroInvitados">
-        <option *ngFor="let i of [1, 2, 3, 4, 5]" [value]="i">{{ i }}</option>
-      </select>
+  <select [(ngModel)]="body.numeroInvitados" required>
+    <option [ngValue]="null" disabled selected>Confirma el número de invitados</option>
+    <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
+      {{ opcion }}
+    </option>
+  </select>
+
+  <p class="fecha-confirmacion">Confirma tu asistencia antes del 30 de agosto</p>
+
+  <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">CONFIRMAR</button>
+</div>
+
+<!-- Sección que se muestra al confirmar -->
+<div *ngIf="confirmado" class="text-center mt-4">
+  <p class="pases">Tus pases confirmados son: {{ invConfirmados }}</p>
+</div>
+
+
+
+
+
+<!-- Modal de advertencia -->
+<div class="modal fade" id="modalAdvertencia" tabindex="-1" aria-labelledby="modalAdvertenciaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered text-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title w-100" id="modalAdvertenciaLabel">Atención</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Por favor selecciona el número de invitados.
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Aceptar</button>
+      </div>
     </div>
-
-    <p class="fecha-confirmacion">Confirma tu asistencia antes del 30 de agosto</p>
-
-    <button class="btn-confirmar mt-3" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-      (click)="confirmar()" [disabled]="botonActivo">
-      CONFIRMAR
-    </button>  
   </div>
 </div>
 
 
+<!-- Modal de confirmación -->
+<div class="modal fade" id="modalGracias" tabindex="-1" aria-labelledby="modalGraciasLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered text-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title w-100" id="modalGraciasLabel">¡Gracias!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        ¡Nos vemos pronto!
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</div>
 
     </div>
   </div>

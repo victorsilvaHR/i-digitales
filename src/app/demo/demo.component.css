@@ -236,6 +236,8 @@
   display: block;
   z-index: 2;
   position: relative;
+  margin-top: -52px;
+
 }
 
 .tira-espejo {
@@ -428,9 +430,17 @@ h2 {
   /* align-items: center; */
   text-align: center;
   margin-bottom: 5em;
-
-
 }
+select {
+  margin-bottom: 20px; /* ajusta el valor a tu gusto */
+  height: 40px;
+}
+
+
+.btn-confirmar {
+  margin-top: 20px;
+}
+
 
 /* .input-group {
     display: flex;
@@ -480,7 +490,7 @@ h2 {
   position: fixed;
   bottom: 160px;
   right: 20px;
-  background-color: black;
+  background-color: #697960;
   border: none;
   color: white;
   padding: 5px;
@@ -493,7 +503,7 @@ h2 {
 }
 
 .play-button:hover {
-  background-color: #e73370;
+  background-color: #A38350;
 }
 
 .play-button .fa {
@@ -604,7 +614,7 @@ h2 {
 }
 
 .fecha-confirmacion {
-    margin-top: -3em;
+    margin-top: 0em;
     margin-bottom: 1.5em;
 }
 
