@@ -1,62 +1,82 @@
+/* Contenedor principal */
+.countdown-wrapper {
+  width: 100%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen de fondo */
+.background-image {
+  background-image: url('/assets/contador.png'); /* Asegúrate que esté bien la ruta */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 38%;
+  position: relative;
+      margin-top: 24px;
+
+}
+
+/* Capa encima de la imagen */
+.countdown-overlay {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  text-align: center;
+  color: white;
+}
+
+/* Texto "Faltan" con fuente manuscrita */
+.faltan-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+/* Contador */
 .countdown-container {
   display: flex;
+  gap: 15px;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: -21px;
-
-}
-.tangerine {
-  font-family: 'Tangerine', cursive;
-  font-size: 28px;
-  color: black;
-}
-.raleway {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 400; /* o 400, 700, etc. */
 }
 
+/* Cada bloque (número + etiqueta) */
 .countdown-box {
-  /* background-color: black ; */
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 100px; /* Ancho fijo */
-  height: 100px; /* Alto fijo */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
+/* Números grandes */
 .countdown-number {
-  font-size: 2em;
-  color: black;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px #000;
 }
 
+/* Etiquetas pequeñas */
 .countdown-label {
-  font-size: 1em;
-  color: black;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  text-shadow: 1px 1px 3px #000;
 }
 
-/* Media query para pantallas pequeñas (móviles) */
+/* Responsive para móviles */
 @media (max-width: 768px) {
-  .countdown-container {
-      flex-direction: row;
-      gap: 5px;
+  .countdown-overlay {
+    right: 20px;
+    bottom: 20px;
   }
 
-  .countdown-box {
-      padding: 10px;
-      width: 80px; /* Ajustar ancho para móvil */
-      height: 80px; /* Ajustar alto para móvil */
+  .faltan-text {
+    font-size: 2rem;
   }
 
   .countdown-number {
-      font-size: 1.5em;
+    font-size: 1.5rem;
   }
 
   .countdown-label {
-      font-size: 0.8em;
+    font-size: 0.7rem;
   }
 }

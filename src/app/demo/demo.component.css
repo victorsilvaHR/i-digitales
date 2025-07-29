@@ -11,6 +11,10 @@
   margin: 40px auto;
   padding: 10px;
   max-width: 600px; /* para limitar el ancho y centrar */
+  margin-top: -60%;
+}
+.texto-fina{
+  font-size: 400;
 }
 .jardin{
     font-size: 40px;
@@ -40,6 +44,36 @@
   margin-top: 25px;
 
 }
+.frace {
+    display: block;
+    width: 100vw;
+    height: 11vh;
+    object-fit: cover;
+    margin-top: 24px;
+}
+
+.mensaje-final {
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -40px; /* ajusta el valor según lo que necesites */
+}
+
+
+.imagen-final {
+ width: 94vw;
+    height: 54vw;
+    display: block;
+    margin-left: 15px;
+
+}
+
+
+
+
 .dress{
   margin-top: 60px;
   font-size: 20px;
@@ -60,12 +94,7 @@
 }
 
 
-.imagen-superior {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
+
 
 .tangerine {
   font-family: 'Tangerine', cursive;
@@ -123,8 +152,8 @@
 
 .btn-recomendaciones{
   font-family: 'Raleway', sans-serif !important;
-  font-size: 16px;          /* Tamaño legible */
-  font-weight: 600;         /* Peso seminegrita */
+  font-size: 20px;          /* Tamaño legible */
+  font-weight: 700;         /* Peso seminegrita */
   background-color: #697960;
   color: white;
   margin-top: -25px;
@@ -136,7 +165,7 @@
   transition: background-color 0.3s ease;
 }
 .btn-confirmar {
-    font-family: 'Raleway', sans-serif !important;
+  font-family: 'Raleway', sans-serif !important;
   font-size: 16px;          /* Tamaño legible */
   font-weight: 600;         /* Peso seminegrita */
   background-color: #697960;
@@ -175,6 +204,8 @@
   overflow-wrap: break-word;
   text-align: center;
   padding: 0 10px;
+    font-family: 'Dancing Script', cursive;
+
 }
 
   .subtitulo {
@@ -197,10 +228,6 @@
   background-size: cover;
   background-attachment: fixed;
 }
-.seccion-imagen {
-  width: 100%;
-  overflow: hidden;
-}
 
 .imagen-superior {
   width: 100%;
@@ -212,22 +239,18 @@
 
 
 
-
 .imagen-itinerario {
   text-align: center;
   margin: 2em 0;
 }
 
-.iti {
-  font-size: 20px;
-  margin-top: 1em;
-}
+
 
 .itinerario-con-espejo {
   position: relative;
-  display: inline-block;
-  width: 600px;
-  max-width: 90%;
+  display: block;
+  width: 100%;
+  max-width: 100%;
 }
 
 .itinerario {
@@ -236,16 +259,17 @@
   display: block;
   z-index: 2;
   position: relative;
-  margin-top: -52px;
+  margin-top: -65px;
 
 }
 
 .tira-espejo {
-  width: 80vw;       /* ancho 80% de la ventana */
-  height: auto;      /* altura automática según ancho */
+  width: 100%;
+  height: auto;
   display: block;
-  margin: 0 auto;
+  margin: 35px auto;
 }
+
 
 .carrusel-contenedor {
   position: relative;
@@ -400,37 +424,87 @@ h2 {
   /* align-items: center; */
   flex-direction: column;
   box-shadow: 0 4px 8px rgba(135, 132, 132, 0.825);  /* Añade sombra */
-}
-.img {
-  width: 15em;
-}
-
-  .evento {
-  font-weight: bold;     /* Negritas */
-  font-size: 18px;     /* Aumenta el tamaño del texto */
+  margin-top: -35px;
 
 }
+
+.regalo {
+  margin-top: 50px;
+  font-weight: 500;      /* opcional, para grosor */
+}
+.regalo-img {
+  margin-top: 10px;
+  width: 100vw;      /* 100% del ancho de la ventana del navegador */
+  height: auto;
+  display: block;
+  margin-left: calc(-50vw + 50%); /* Centra la imagen aunque se salga del contenedor */
+}
+.banco {
+  margin: 0;
+  line-height: 1.2; /* Ajusta si quieres controlar el espacio entre líneas */
+}
+.bancoc {
+  margin: 0;
+  line-height: 1.2; /* Ajusta si quieres controlar el espacio entre líneas */
+  font-weight: bold;
+}
+.banco1 {
+  background-color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* sombra más fuerte */
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+      margin-top: 40px;
+
+}
+
+.banco, .bancoc {
+  margin: 2px 0; /* hace que los textos estén más pegados */
+}
+
+
 .espacio-select {
   margin-top: 20px;
 }
 
 .confirmation-container {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px 15px;
 }
+
 .confirmation-box {
-  padding: 20px;
-  width: 90%;
-  max-width: 400px;
+  padding: 25px 20px;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* sombra para resaltar */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   text-align: center;
-  margin-bottom: 5em;
+  margin-bottom: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.confirmation-box:hover {
+  transform: scale(1.01);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+}
+
+.confirmation-box select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin: 20px 0;
+}
+
 select {
   margin-bottom: 20px; /* ajusta el valor a tu gusto */
   height: 40px;
@@ -488,19 +562,24 @@ select {
 }
 .play-button {
   position: fixed;
-  bottom: 160px;
+  bottom: 590px;         /* Ajustado para subir el botón */
   right: 20px;
-  background-color: #697960;
+  z-index: 9999;
+  background-color: #697960; /* Color nuevo */
   border: none;
   color: white;
-  padding: 5px;
-  /* border-radius: 50%; */
+  /* border-radius: 50%;    Botón redondo */
+  width: 40px;           /* Tamaño grande y consistente */
+  height: 40px;
   font-size: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  height: 2em;
-  width: 2em;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Nueva sombra */
 }
+
 
 .play-button:hover {
   background-color: #A38350;
@@ -511,14 +590,12 @@ select {
 }
 
 .stacked-carousel {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  margin: 0px auto;
+  width: 340px;
+  height: 550px;
+  margin: 0 auto;
   perspective: 1000px;
   cursor: pointer;
   margin-top: 60px;
-
 }
 
 .card {
@@ -565,7 +642,7 @@ select {
 
 
 .hospedaje {
-  font-size: 20px; /* un tamaño más grande */
+  font-size: 17px; /* un tamaño más grande */
   margin-bottom: 20px; /* margen debajo del texto para separar del botón */
 }
 
@@ -576,7 +653,7 @@ select {
   border-radius: 10px; /* bordes redondeados */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
   padding: 20px; /* espacio interno */
-  margin-top: 8%;
+  margin-top: -90%;
 
 }
 
@@ -585,17 +662,21 @@ select {
 .evento {
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 1em;
+  margin-bottom: 0em;
 }
 
 .reserva {
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 0.5em;
 }
 
 .pases {
   font-size: 20px;
   margin-bottom: 2em;
+}
+.previo{
+    font-size: 20px;
+  
 }
 
 .invitados-wrapper {
@@ -616,9 +697,12 @@ select {
 .fecha-confirmacion {
     margin-top: 0em;
     margin-bottom: 1.5em;
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.btn-confirmar {
+
+/* .btn-confirmar {
   background-color: #697960;
   color: white;
   padding: 10px 20px;
@@ -626,14 +710,11 @@ select {
   border: none;
   border-radius: 6px;
   transition: background-color 0.3s ease;
-}
+} */
 
 .btn-confirmar:hover {
   background-color: #5a6750;
 }
-
-
-
 
 
 
@@ -665,6 +746,36 @@ select {
 }
 .fondo {
   height: auto; /* Ajustar la altura para que sea automática */
+}
+  .mensaje-final {
+    margin-top: -25px;
+  }
+
+.confirmation-container {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    margin-top: 153px;
+}
+.confirmation-box {
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 34em;
+    border: 3px solid #DBD0BD;
+
+}
+.imagen-final {
+ width: 94vw;
+    height: 54vw;
+    display: block;
+    margin-left: 15px;
+
 }
 
   

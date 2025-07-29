@@ -1,8 +1,14 @@
-import { Component, ElementRef, HostListener, Input, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  AfterViewInit
+} from '@angular/core';
 import { ApiService } from '../servicios/api.service';
 import { ActivatedRoute } from '@angular/router';
 declare var bootstrap: any;
-
 
 @Component({
   selector: 'app-demo',
@@ -10,23 +16,18 @@ declare var bootstrap: any;
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit, AfterViewInit {
-
   @Input() noInvitados: number | string = 0;
   @ViewChild('audio', { static: true }) audio!: ElementRef<HTMLAudioElement>;
 
-  isPlaying = true;
-  showButton = false;
+  isPlaying = false; // Inicia en pausa
+  showButton = true; // Mostrar el botón desde el principio
 
   parametro: string | null;
   eventoId: string | null = null;
   invitacionId: string | null = null;
   error = false;
-  confirmado: boolean = false; 
+  confirmado: boolean = false;
   invConfirmados: number | null = null;
-
-
-
-
 
   body = {
     id: '',
@@ -52,70 +53,53 @@ export class DemoComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+     this.showButton = true;
     this.eventoId = this.route.snapshot.paramMap.get('eventoId');
     this.invitacionId = this.route.snapshot.paramMap.get('invitacionId');
-    
 
     if (this.invitacionId) {
       this.body.id = this.invitacionId;
-      
 
-   this.apiService.getById('invitaciones', 'id', this.invitacionId).subscribe(
-  (response: any) => {
-    const data = response[0];
-    this.invitacion.nombre = data.nombre;
-    this.invitacion.noInvitados = Number(data.noInvitados);
+      this.apiService.getById('invitaciones', 'id', this.invitacionId).subscribe(
+        (response: any) => {
+          const data = response[0];
+          this.invitacion.nombre = data.nombre;
+          this.invitacion.noInvitados = Number(data.noInvitados);
 
-    if (data.confAsistencia === 1) {
-      this.confirmado = true;
-      this.invConfirmados = data.invConfirmados;
-    }
+          if (data.confAsistencia === 1) {
+            this.confirmado = true;
+            this.invConfirmados = data.invConfirmados;
+          }
 
-    this.actualizarOpciones();
-  },
-  (error) => console.error('Error en la consulta:', error)
-);
-
-
-    
+          this.actualizarOpciones();
+        },
+        (error) => console.error('Error en la consulta:', error)
+      );
     }
 
     this.fotosCarrusel1 = Array.from({ length: 13 }, (_, i) => `assets/foto${i + 1}.jpg`);
-    this.fotosCarrusel2 = Array.from({ length: 11 }, (_, i) => `assets/DS${i + 1}.jpg`);
+    this.fotosCarrusel2 = Array.from({ length: 10 }, (_, i) => `assets/DS${i + 1}.jpg`);
 
     setInterval(() => {
       this.nextFotoCarrusel1();
     }, 3000);
   }
 
-ngAfterViewInit(): void {
-  const audioEl = this.audio.nativeElement;
+  ngAfterViewInit(): void {
+    // No intentamos reproducir automáticamente para evitar bloqueo del navegador
+    this.isPlaying = false;
 
-  audioEl.play().then(() => {
-    this.isPlaying = true; // ✅ Música está sonando
-  }).catch(err => {
-    console.warn('Autoplay bloqueado:', err);
-  });
-}
-
-
-@HostListener('window:scroll', [])
-onWindowScroll() {
-  if (!this.showButton) {
-    this.showButton = true;
-
-    const audioEl = this.audio.nativeElement;
-
-    // Pausar si se estaba reproduciendo
-    if (!audioEl.paused) {
-      audioEl.pause();
-      this.isPlaying = false; // ✅ icono en "play"
-    }
+    setTimeout(() => {
+      const carouselElement = document.querySelector('#carruselFotos');
+      if (carouselElement && !carouselElement.classList.contains('carousel-initialized')) {
+        const carousel = bootstrap.Carousel.getInstance(carouselElement);
+        if (!carousel) {
+          new bootstrap.Carousel(carouselElement);
+          carouselElement.classList.add('carousel-initialized');
+        }
+      }
+    }, 300);
   }
-}
-
-
-
 
 togglePlay() {
   const audio = this.audio.nativeElement;
@@ -132,35 +116,35 @@ togglePlay() {
 }
 
 
-confirmar() {
-  if (this.body.numeroInvitados === null) {
-    const modalAdvertencia = new bootstrap.Modal(document.getElementById('modalAdvertencia'));
-    modalAdvertencia.show();
-    return;
-  }
-
-  const dataToSend = {
-    ...this.body,
-    invConfirmados: this.body.numeroInvitados
-  };
-
-  this.apiService.confirmar(dataToSend).subscribe(
-    (response: any) => {
-      console.log('Confirmación exitosa:', response);
-      this.confirmado = true; 
-      const modalGracias = new bootstrap.Modal(document.getElementById('modalGracias'));
-      modalGracias.show();
-    },
-    (error: any) => {
-      console.error('Error al confirmar:', error);
+  confirmar() {
+    if (this.body.numeroInvitados === null) {
+      const modalAdvertencia = new bootstrap.Modal(document.getElementById('modalAdvertencia'));
+      modalAdvertencia.show();
+      return;
     }
-  );
-  this.confirmado = true;
-this.invConfirmados = this.body.numeroInvitados;
 
-}
+    this.body.asistencia = true;
 
+    const dataToSend = {
+      ...this.body,
+      invConfirmados: this.body.numeroInvitados
+    };
 
+    this.apiService.confirmar(dataToSend).subscribe(
+      (response: any) => {
+        console.log('Confirmación exitosa:', response);
+        this.confirmado = true;
+        const modalGracias = new bootstrap.Modal(document.getElementById('modalGracias'));
+        modalGracias.show();
+      },
+      (error: any) => {
+        console.error('Error al confirmar:', error);
+      }
+    );
+
+    this.confirmado = true;
+    this.invConfirmados = this.body.numeroInvitados;
+  }
 
   nextFotoCarrusel1() {
     this.currentIndexCarrusel1 = (this.currentIndexCarrusel1 + 1) % this.fotosCarrusel1.length;
@@ -181,6 +165,18 @@ this.invConfirmados = this.body.numeroInvitados;
       for (let i = 1; i <= total; i++) {
         this.numeroOpciones.push(i);
       }
+    }
+  }
+
+  actualizarAsistencia() {
+    if (this.body.numeroInvitados === 0) {
+      this.body.asistencia = true;
+      this.confirmado = true;
+    } else if (this.body.numeroInvitados !== null) {
+      this.body.asistencia = true;
+      this.confirmado = false;
+    } else {
+      this.confirmado = false;
     }
   }
 }

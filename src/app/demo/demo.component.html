@@ -1,212 +1,177 @@
 <div class="seccion-imagen">
-  <img src="assets/principal.jpg" alt="noviosPrueba" class="imagen-superior" />
+  <img src="assets/g&b.jpg" alt="noviosPrueba" class="imagen-superior" />
 </div>
 
-<div>
-  <button 
-    class="play-button" 
-    *ngIf="showButton"
-    (click)="togglePlay()">
-    <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
-  </button>
+<button class="play-button" *ngIf="showButton" (click)="togglePlay()">
+  <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+</button>
 
-  <audio #audio>
-    <source src="assets/usted.mp3" type="audio/mpeg">
-  </audio>
-</div>
+<audio #audio>
+  <source src="assets/cancion.mp3" type="audio/mpeg">
+</audio>
 
-  <div class="text-center">
 
-    <div>
-      <h1 class="titulo tangerine">Gabriela &amp; Dennys</h1>
-      <div class="fondo-fecha-contador">
-      <p class="raleway fecha">18 octubre 2025</p>
-     <app-countdown></app-countdown>
-     </div>
 
+<div class="text-center">
+  <div>
+    <img src="assets/fecha.jpg" alt="fecha" class="frace" />
+    <app-countdown></app-countdown>
+  </div>
 
   <div class="contenedor-lugar">
-  <p class="raleway donde">Lugar</p>
-  <p class="jardin tangerine">Jardín San Rafael</p>
-  <p class="direccion raleway">
-    C. del Panteón 20, Atlacomulco 62560 <br>
-    Jiutepec, Morelos.
-  </p>
-  <a href="https://maps.app.goo.gl/G5MiKnmgGSk11cKT8" target="_blank" class="btn-ver-mapa">VER MAPA</a>
-</div>
-
-
-<div class="stacked-carousel">
-  <div *ngFor="let foto of fotosCarrusel1; let i = index"
-       class="card"
-       [ngClass]="{
-         'active': i === currentIndexCarrusel1,
-         'previous': i === currentIndexCarrusel1 - 1 || (currentIndexCarrusel1 === 0 && i === fotosCarrusel1.length - 1),
-         'two-behind': i === currentIndexCarrusel1 - 2 || (currentIndexCarrusel1 <= 1 && i >= fotosCarrusel1.length - 2)
-       }">
-    <img [src]="foto" [alt]="'Foto ' + (i + 1)">
-  </div>
-</div>
-
-
-<div class="contenedor-dresscode">
-  <p class="raleway dress">Dress Code</p>
-  <p class="aleway blanco">Reserva el blanco para las novias</p>
-  <p class="tangerine cocktail">Cocktail Formal</p>
-  <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn-ejemplo">VER EJEMPLO</a>
-</div>
-
-
-
-<div class="imagen-itinerario raleway">
-  <p class="iti raleway">ITINERARIO</p>
-
-  <div class="itinerario-con-espejo">
-    <img src="assets/itinerario.jpg" class="itinerario">
-    <img src="assets/espejo.jpg" class="tira-espejo inferior">
-  </div>
-</div>
-
-
-
-
-        <p class="donde raleway">Mesa de regalos</p>
-<p class="px-3 px-md-0 raleway">
-  Tu presencia es nuestro mayor regalo, pero si quieres tener un detalle con nosotros te damos estas sugerencias.
-</p>
-
-
-
-        
-      <div class="container">
-  <div class="box">
-    <img src="assets/liverpool.png" class="img">
-    <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51685057" target="_blank" class="btn-mesa">VER MESA</a>
-  </div>
-</div>
-
-<div id="carruselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-  <!-- Indicadores -->
-  <div class="carousel-indicators">
-    <button *ngFor="let i of fotosCarrusel2; let idx = index"
-            type="button"
-            data-bs-target="#carruselFotos"
-            [attr.data-bs-slide-to]="idx"
-            [class.active]="idx === 0"
-            [attr.aria-current]="idx === 0 ? 'true' : null"
-            [attr.aria-label]="'Slide ' + (idx + 1)">
-    </button>
+    <p class="raleway donde">Lugar</p>
+    <p class="jardin tangerine">Jardín San Rafael</p>
+    <p class="direccion raleway">
+      C. del Panteón 20, Atlacomulco 62560 <br>
+      Jiutepec, Morelos.
+    </p>
+    <a href="https://maps.app.goo.gl/G5MiKnmgGSk11cKT8" target="_blank" class="btn-ver-mapa">VER MAPA</a>
   </div>
 
-  <!-- Imágenes -->
-  <div class="carousel-inner">
-    <div *ngFor="let foto of fotosCarrusel2; let i = index" class="carousel-item" [class.active]="i === 0">
-      <img [src]="foto" class="d-block w-100" [alt]="'DS ' + (i + 1)">
+  <div class="stacked-carousel">
+    <div *ngFor="let foto of fotosCarrusel1; let i = index"
+         class="card"
+         [ngClass]="{
+           'active': i === currentIndexCarrusel1,
+           'previous': i === currentIndexCarrusel1 - 1 || (currentIndexCarrusel1 === 0 && i === fotosCarrusel1.length - 1),
+           'two-behind': i === currentIndexCarrusel1 - 2 || (currentIndexCarrusel1 <= 1 && i >= fotosCarrusel1.length - 2)
+         }">
+      <img [src]="foto" [alt]="'Foto ' + (i + 1)">
     </div>
   </div>
-</div>
 
+  <div class="contenedor-dresscode">
+    <p class="raleway dress">Dress Code</p>
+    <p class="aleway blanco">Reserva el blanco para las novias</p>
+    <p class="tangerine cocktail">Cocktail Formal</p>
+    <a href="https://pin.it/4zG4pjCMO" target="_blank" class="btn-ejemplo">VER EJEMPLO</a>
+  </div>
 
+  <div class="imagen-itinerario raleway">
+    <p class="raleway">ITINERARIO</p>
+    <div class="itinerario-con-espejo">
+      <img src="assets/itinerario.png" class="itinerario">
+      <img src="assets/espejo.jpg" class="tira-espejo inferior">
+    </div>
+  </div>
 
+  <p class="donde raleway">Mesa de regalos</p>        
+  <div class="container">
+    <div class="box">
+      <img src="assets/liverpool.png" class="img">
+      <a href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51685057" target="_blank" class="btn-mesa">VER MESA</a>
+    </div>
+  </div>
 
-
-<div class="tarjeta text-center ">
-  <p class="raleway hospedaje mb-3">
-    Recomendaciones de hospedaje
+  <p class="px-3 px-md-0 raleway regalo">
+    Cada paisaje, brindis e instante de nuestra luna de miel llevará un pedacito de ti.<br>
+    ¿Te gustaría formar parte de esta aventura?
   </p>
-  <a href="assets/RECOMENDACIONES DE HOSPEDAJE BODAG&A.pdf" target="_blank" rel="noopener noreferrer" class="btn-recomendaciones">
-    VER
-  </a>
+  <img src="assets/regalo.jpg" class="regalo-img">
+
+  <div class="banco1">
+    <p class="banco">BBVA</p>
+    <p class="bancoc">012180015339840397</p>
+    <p class="banco">MARIA GABRIELA JIMENEZ GARCIA</p>
+  </div>
+
+  <div id="carruselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+      <button *ngFor="let i of fotosCarrusel2; let idx = index"
+              type="button"
+              data-bs-target="#carruselFotos"
+              [attr.data-bs-slide-to]="idx"
+              [class.active]="idx === 0"
+              [attr.aria-current]="idx === 0 ? 'true' : null"
+              [attr.aria-label]="'Slide ' + (idx + 1)">
+      </button>
+    </div>
+
+    <!-- Imágenes -->
+  <div id="carouselFotos2" class="carousel-inner">
+  <div *ngFor="let foto of fotosCarrusel2; let i = index" class="carousel-item" [class.active]="i === 0">
+    <img [src]="foto" class="d-block w-100" [alt]="'DS ' + (i + 1)">
+  </div>
 </div>
 
+  </div>
+
+<!-- CONTENEDOR PRINCIPAL -->
 <div class="confirmation-container raleway">
   <div class="confirmation-box">
-    <p class="evento">Evento exclusivo para adultos</p>
-<!-- Sección que se oculta al confirmar -->
-<div *ngIf="!confirmado" class="text-center">
-  <p class="reserva">Tenemos reservado para ti</p> 
-  <p class="pases">{{ invitacion.noInvitados }} pases</p>
+    <!-- Sección que se oculta al confirmar -->
+    <div *ngIf="!confirmado" class="text-center">
+      <p class="reserva">Tenemos reservado para ti</p> 
+      <p class="pases"><strong>{{ invitacion.noInvitados }}</strong> pases</p>
+      <p class="evento">Evento exclusivo para adultos</p>
 
-  <select [(ngModel)]="body.numeroInvitados" required>
-    <option [ngValue]="null" disabled selected>Confirma el número de invitados</option>
-    <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
-      {{ opcion }}
-    </option>
-  </select>
+      <select [(ngModel)]="body.numeroInvitados" (change)="actualizarAsistencia()" required>
+        <option [ngValue]="null" disabled selected>Confirma el número de invitados</option>
+        <option [ngValue]="0">No podré asistir</option>
+        <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
+          <strong>{{ opcion }}</strong>   
+        </option>
+      </select>
 
-  <p class="fecha-confirmacion">Confirma tu asistencia antes del 30 de agosto</p>
+      <p class="previo">Previo al 31 de Agosto</p>
+      <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">ENVIAR</button>
+    </div>
 
-  <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">CONFIRMAR</button>
-</div>
+    <!-- Sección que se muestra al confirmar -->
+    <div *ngIf="confirmado" class="text-center mt-4">
+      <p class="pases">Tus pases confirmados son: <br>
+        <strong>{{ invConfirmados }}</strong>
+      </p>
+    </div>
 
-<!-- Sección que se muestra al confirmar -->
-<div *ngIf="confirmado" class="text-center mt-4">
-  <p class="pases">Tus pases confirmados son: <br>
-     {{ invConfirmados }}</p>
-</div>
-
-
-
-
-
-<!-- Modal de advertencia -->
-<div class="modal fade" id="modalAdvertencia" tabindex="-1" aria-labelledby="modalAdvertenciaLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered text-center">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title w-100" id="modalAdvertenciaLabel">Atención</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        Por favor selecciona el número de invitados.
-      </div>
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Aceptar</button>
+    <!-- Modal de advertencia -->
+    <div class="modal fade" id="modalAdvertencia" tabindex="-1" aria-labelledby="modalAdvertenciaLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered text-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100" id="modalAdvertenciaLabel">Atención</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">Por favor selecciona el número de invitados.</div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-
-<!-- Modal de confirmación -->
-<div class="modal fade" id="modalGracias" tabindex="-1" aria-labelledby="modalGraciasLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered text-center">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title w-100" id="modalGraciasLabel">¡Gracias!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        ¡Nos vemos pronto!
-      </div>
-      <div class="modal-footer justify-content-center">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    <!-- Modal de confirmación -->
+    <div class="modal fade" id="modalGracias" tabindex="-1" aria-labelledby="modalGraciasLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered text-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title w-100" id="modalGraciasLabel">¡Gracias!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">¡Nos vemos pronto!</div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
       </div>
     </div>
+
+  </div> <!-- /.confirmation-box -->
+</div> <!-- /.confirmation-container -->
+
+<!-- NUEVA SECCIÓN DE HOSPEDAJE Y MENSAJE FINAL -->
+<div class="extras-container raleway text-center">
+  <div class="tarjeta">
+    <p class="hospedaje mb-3">Recomendaciones de hospedaje</p>
+    <a href="assets/RECOMENDACIONES DE HOSPEDAJE BODAG&A.pdf" target="_blank" rel="noopener noreferrer" class="btn-recomendaciones">
+      VER
+    </a>
+  </div>
+
+  <div class="mensaje-final">
+    <p class="texto-final">¡Gracias por ser parte de nuestra historia!</p>
+    <img src="assets/final.png" alt="Gracias" class="imagen-final">
   </div>
 </div>
-
-
-  </div>
-</div>
-
-    </div>
-  </div>
-
-      <!-- <div class="d-flex justify-content-between respuestas">
-      <label>
-        <input class="boton" type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=true> 
-        Asistiré
-      </label>
-
-      <label>
-        <input type="radio" name="asistencia" [(ngModel)]="body.asistencia" (click)="asistencia()" value=false>  
-        No asistiré
-      </label>
-    </div> -->
-
-
-
-
-
 
