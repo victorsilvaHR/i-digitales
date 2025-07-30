@@ -562,7 +562,7 @@ select {
 }
 .play-button {
   position: fixed;
-  bottom: 583px;         /* Ajustado para subir el botón */
+  bottom: 30%;         /* Ajustado para subir el botón */
   right: 20px;
   z-index: 9999;
   background-color: #697960; /* Color nuevo */
@@ -784,23 +784,7 @@ select {
   padding: 20px; /* espacio interno */
 }
 .play-button {
-  position: fixed;
-  bottom: 583px;         /* Ajustado para subir el botón */
-  right: 20px;
-  z-index: 9999;
-  background-color: #697960; /* Color nuevo */
-  border: none;
-  color: white;
-  /* border-radius: 50%;    Botón redondo */
-  width: 40px;           /* Tamaño grande y consistente */
-  height: 40px;
-  font-size: 24px;
-  cursor: pointer;
-  pointer-events: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Nueva sombra */
+   bottom: 48%;
 }
 
   
@@ -832,7 +816,7 @@ select {
   }
 
   .play-button {
-    bottom: 80px;
+    bottom: 57%;
     width: 35px;
     height: 35px;
     font-size: 20px;
@@ -853,7 +837,7 @@ img, .imagen-final, .tarjeta {
   }
 
   .play-button {
-    bottom: 100px; /* Ajustado para móviles largos */
+    bottom: 62%; /* Ajustado para móviles largos */
   }
 
   .confirmation-container {
