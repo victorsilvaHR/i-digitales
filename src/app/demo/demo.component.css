@@ -156,7 +156,7 @@
   font-weight: 700;         /* Peso seminegrita */
   background-color: #697960;
   color: white;
-  margin-top: -25px;
+  margin-top: -30px;
   padding: 10px 20px;       /* Espaciado interno */
   border: none;
   border-radius: 6px;
@@ -562,7 +562,7 @@ select {
 }
 .play-button {
   position: fixed;
-  bottom: 590px;         /* Ajustado para subir el botón */
+  bottom: 583px;         /* Ajustado para subir el botón */
   right: 20px;
   z-index: 9999;
   background-color: #697960; /* Color nuevo */
@@ -653,8 +653,7 @@ select {
   border-radius: 10px; /* bordes redondeados */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
   padding: 20px; /* espacio interno */
-  margin-top: -90%;
-
+  margin-top: -85%;
 }
 
 
@@ -756,7 +755,7 @@ select {
     justify-content: center;
     align-items: center;
     height: 60vh;
-    margin-top: 153px;
+    margin-top: 20px;
 }
 .confirmation-box {
   padding: 20px;
@@ -766,8 +765,7 @@ select {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-bottom: 34em;
-    border: 3px solid #DBD0BD;
+  margin-bottom: 16em;
 
 }
 .imagen-final {
@@ -777,6 +775,90 @@ select {
     margin-left: 15px;
 
 }
+.tarjeta {
+  max-width: 360px; /* ancho máximo para que no sea muy ancho */
+  margin: 30px auto; /* margen arriba y abajo, centrado horizontalmente */
+  background-color: #f8f9fa; /* fondo claro tipo tarjeta */
+  border-radius: 10px; /* bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
+  padding: 20px; /* espacio interno */
+}
+.play-button {
+  position: fixed;
+  bottom: 583px;         /* Ajustado para subir el botón */
+  right: 20px;
+  z-index: 9999;
+  background-color: #697960; /* Color nuevo */
+  border: none;
+  color: white;
+  /* border-radius: 50%;    Botón redondo */
+  width: 40px;           /* Tamaño grande y consistente */
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Nueva sombra */
+}
 
   
 }
+@media (max-width: 400px) {
+  .titulo {
+    font-size: 40px;
+  }
+
+  .padrinos2 {
+    font-size: 1.5em;
+    height: auto;
+  }
+
+  .confirmation-box {
+    margin-bottom: 10em;
+    padding: 10px;
+  }
+
+  .imagen-final {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+  }
+
+  .tarjeta {
+    margin-top: -30%;
+    padding: 10px;
+  }
+
+  .play-button {
+    bottom: 80px;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+  /* .confirmation-container {
+  height: 60vh;
+  margin-top: 153px;
+} */
+img, .imagen-final, .tarjeta {
+  max-width: 100%;
+  height: auto;
+}
+}
+@media (max-width: 430px) and (min-height: 800px) {
+  .tarjeta {
+    margin-top: -60%;
+    padding: 15px;
+  }
+
+  .play-button {
+    bottom: 100px; /* Ajustado para móviles largos */
+  }
+
+  .confirmation-container {
+    margin-top: -13px;
+    height: auto;
+  }
+}
+
