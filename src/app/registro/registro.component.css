@@ -1,19 +1,61 @@
-.table-responsive {
-  width: 100%;
-}
+/* .table-wrapper {
+  max-height: 400px;
+  overflow: auto;
+} */
 
 .table {
   width: 100%;
-  margin: 0 auto; /* centrado horizontal */
+  border-collapse: collapse;
+}
+
+.table thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 2;
+  border-bottom: 2px solid #dee2e6;
 }
 
 .titulo-registro {
   font-size: 2em;
   font-weight: bold;
   text-align: center;
-  margin-top: 2em;
-  padding-bottom: 10px;
+  padding: 10px;
+  background-color: white;
 }
+
+.table-body-scroll {
+  max-height: 300px;
+  overflow-y: auto;
+  display: block;
+}
+
+.table-body-scroll tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table thead tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.table tfoot tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.table-wrapper {
+  max-height: 900px; /* Aumenta la altura para ver más filas */
+  overflow: auto;
+}
+
+.table-body-scroll {
+  max-height: 500px; /* También aquí, para controlar el área scrolleable */
+}
+
 
 @media (max-width: 767.98px) {
   .table tfoot .btn {

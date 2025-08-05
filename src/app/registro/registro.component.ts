@@ -21,6 +21,8 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRegistroId();
+    console.log(this.resultQuery);
+
   }
 
 getRegistroId() {

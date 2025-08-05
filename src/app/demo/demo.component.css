@@ -585,9 +585,6 @@ select {
   background-color: #A38350;
 }
 
-.play-button .fa {
-  margin: 0;
-}
 
 .stacked-carousel {
   width: 340px;
@@ -755,7 +752,7 @@ select {
     justify-content: center;
     align-items: center;
     height: 60vh;
-    margin-top: 20px;
+    margin-top: 45px;
 }
 .confirmation-box {
   padding: 20px;
@@ -782,9 +779,10 @@ select {
   border-radius: 10px; /* bordes redondeados */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* sombra suave */
   padding: 20px; /* espacio interno */
+  margin-top: -38%;
 }
 .play-button {
-   bottom: 48%;
+   bottom: 80px;
 }
 
   
@@ -841,7 +839,7 @@ img, .imagen-final, .tarjeta {
   }
 
   .confirmation-container {
-    margin-top: -13px;
+    margin-top: -35px;
     height: auto;
   }
 }

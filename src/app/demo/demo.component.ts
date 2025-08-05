@@ -15,7 +15,7 @@ declare var bootstrap: any;
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnInit, AfterViewInit {
+export class DemoComponent implements OnInit, AfterViewInit  {
   @Input() noInvitados: number | string = 0;
   @ViewChild('audio', { static: true }) audio!: ElementRef<HTMLAudioElement>;
 
@@ -29,11 +29,13 @@ export class DemoComponent implements OnInit, AfterViewInit {
   confirmado: boolean = false;
   invConfirmados: number | null = null;
 
-  body = {
-    id: '',
-    asistencia: true,
-    numeroInvitados: null
-  };
+body: { id: string; asistencia: boolean; numeroInvitados: number | null } = {
+  id: '',
+  asistencia: true,
+  numeroInvitados: null
+};
+
+
 
   invitacion: any = {
     nombre: '',
@@ -82,7 +84,7 @@ export class DemoComponent implements OnInit, AfterViewInit {
 
     setInterval(() => {
       this.nextFotoCarrusel1();
-    }, 3000);
+    }, 5000);
   }
 
   ngAfterViewInit(): void {
@@ -98,7 +100,7 @@ export class DemoComponent implements OnInit, AfterViewInit {
           carouselElement.classList.add('carousel-initialized');
         }
       }
-    }, 300);
+    }, 5000);
   }
 
 togglePlay() {
@@ -115,16 +117,13 @@ togglePlay() {
   this.isPlaying = !this.isPlaying;
 }
 
-
-  confirmar() {
+confirmar() {
     if (this.body.numeroInvitados === null) {
       const modalAdvertencia = new bootstrap.Modal(document.getElementById('modalAdvertencia'));
       modalAdvertencia.show();
       return;
     }
-
     this.body.asistencia = true;
-
     const dataToSend = {
       ...this.body,
       invConfirmados: this.body.numeroInvitados
@@ -137,14 +136,15 @@ togglePlay() {
         const modalGracias = new bootstrap.Modal(document.getElementById('modalGracias'));
         modalGracias.show();
       },
+      
       (error: any) => {
         console.error('Error al confirmar:', error);
       }
     );
-
+    
     this.confirmado = true;
     this.invConfirmados = this.body.numeroInvitados;
-  }
+}
 
   nextFotoCarrusel1() {
     this.currentIndexCarrusel1 = (this.currentIndexCarrusel1 + 1) % this.fotosCarrusel1.length;
@@ -167,16 +167,30 @@ togglePlay() {
       }
     }
   }
+onSeleccionarInvitado(valor: number | null) {
+  console.log('SE DISPARÓ EL CAMBIO con valor:', valor);
 
-  actualizarAsistencia() {
-    if (this.body.numeroInvitados === 0) {
-      this.body.asistencia = true;
-      this.confirmado = true;
-    } else if (this.body.numeroInvitados !== null) {
-      this.body.asistencia = true;
-      this.confirmado = false;
-    } else {
-      this.confirmado = false;
-    }
+  if (valor === 0) {
+    const modal = new bootstrap.Modal(document.getElementById('modalConfirmacionNoAsistencia'));
+    modal.show();
+  } else {
+    this.body.numeroInvitados = valor;
   }
 }
+
+confirmarNoAsistencia() {
+  this.body.numeroInvitados = 0;
+  this.confirmar();
+}
+
+cancelarNoAsistencia() {
+  this.body.numeroInvitados = null;
+}
+
+
+
+
+}
+
+
+

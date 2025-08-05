@@ -1,9 +1,9 @@
 <div class="container-fluid px-3">
-  <div class="table-responsive">
+  <div class="table-wrapper">
     <table class="table table-striped table-sm text-center w-100">
-      <thead> 
+      <thead class="table-header-sticky">
         <tr>
-          <th colspan="6" class="titulo-registro">REGISTRO</th> 
+          <th colspan="4" class="titulo-registro">REGISTRO</th>
         </tr>
         <tr>
           <th>Invitado</th>
@@ -12,7 +12,8 @@
           <th>Confirmación</th>
         </tr>
       </thead>
-      <tbody>
+
+      <tbody class="table-body-scroll">
         <tr *ngFor="let fila of resultQuery">
           <td>{{ fila.nombre }}</td>
           <td>{{ fila.invConfirmados }}</td>
@@ -25,6 +26,7 @@
           </td>
         </tr>
       </tbody>
+
       <tfoot>
         <tr>
           <td colspan="3" class="text-end">Total de Personas Confirmadas:</td>

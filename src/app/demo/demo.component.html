@@ -106,13 +106,21 @@
       <p class="pases"><strong>{{ invitacion.noInvitados }}</strong> pases</p>
       <p class="evento">Evento exclusivo para adultos</p>
 
-      <select [(ngModel)]="body.numeroInvitados" (change)="actualizarAsistencia()" required>
-        <option [ngValue]="null" disabled selected>Confirma el número de invitados</option>
-        <option [ngValue]="0">No podré asistir</option>
-        <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
-          <strong>{{ opcion }}</strong>   
-        </option>
-      </select>
+<select
+  [ngModel]="body.numeroInvitados"
+  (ngModelChange)="onSeleccionarInvitado($event)"
+  name="numeroInvitados"
+  required
+>
+  <option [ngValue]="null" disabled selected>Confirma el número de invitados</option>
+  <option [ngValue]="0">No podré asistir</option>
+  <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
+    {{ opcion }}
+  </option>
+</select>
+
+
+
 
       <p class="previo">Previo al 31 de Agosto</p>
       <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">ENVIAR</button>
@@ -173,4 +181,24 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal de confirmación de no asistencia -->
+<div class="modal fade" id="modalConfirmacionNoAsistencia" tabindex="-1" aria-labelledby="modalConfirmacionNoAsistenciaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalConfirmacionNoAsistenciaLabel">¿Estás seguro?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Has seleccionado que no podrás asistir.<br>¿Confirmas esta decisión?
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="cancelarNoAsistencia()">Cancelar</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="confirmarNoAsistencia()">Confirmar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
