@@ -69,7 +69,6 @@ setIdEvento() {
 
           // Concatenar la URL
           const urlBase = 'https://invitaciones-31afc.web.app/A&G';
-        //  const urlBase =  'http://localhost:4200/demo';
           const evento = this.invitacion.idEvento; 
           this.urlCompleta = `${urlBase}/${evento}/${id}`;
 this.invitacion = {

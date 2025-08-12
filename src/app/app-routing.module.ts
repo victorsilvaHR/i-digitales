@@ -8,6 +8,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { DemoComponent } from './demo/demo.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './servicios/guard.service';
+import { InvIvanComponent } from './inv-ivan/inv-ivan.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -18,7 +19,7 @@ const routes: Routes = [
   { path: 'demo', component: DemoComponent },
   { path: 'A&G/:eventoId/:invitacionId', component: DemoComponent },
   { path:'login', component: LoginComponent },
-  { path:'victor.hugo.silva01-bautizo/:id', component: DemoComponent  },
+  { path: 'Boda/I&Z', component: InvIvanComponent },
   { path:'', component: LoginComponent },
   { path:'**', component: LoginComponent },
 

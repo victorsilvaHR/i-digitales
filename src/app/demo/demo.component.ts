@@ -79,8 +79,8 @@ body: { id: string; asistencia: boolean; numeroInvitados: number | null } = {
       );
     }
 
-    this.fotosCarrusel1 = Array.from({ length: 13 }, (_, i) => `assets/foto${i + 1}.jpg`);
-    this.fotosCarrusel2 = Array.from({ length: 10 }, (_, i) => `assets/DS${i + 1}.jpg`);
+    this.fotosCarrusel1 = Array.from({ length: 13 }, (_, i) => `assets/A&G/foto${i + 1}.jpg`);
+    this.fotosCarrusel2 = Array.from({ length: 10 }, (_, i) => `assets/A&G/DS${i + 1}.jpg`);
 
     setInterval(() => {
       this.nextFotoCarrusel1();

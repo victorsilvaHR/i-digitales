@@ -14,6 +14,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { InvIvanComponent } from './inv-ivan/inv-ivan.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     InvitacionComponent,
     LoginComponent,
     RegistroComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    InvIvanComponent
   ],
   imports: [
     BrowserModule,

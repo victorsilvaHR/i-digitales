@@ -33,6 +33,54 @@
     margin-top: 1em;
     margin-top: 10px;
 }
+.contenedor-dresscode {
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.dress {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.blanco {
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.cocktail {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.imagenes-dresscode {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.imagen-item {
+  text-align: center;
+  max-width: 120px;
+}
+
+.img-dress {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.descripcion {
+  font-size: 14px;
+  margin-top: 0.3rem;
+  font-weight: 500;
+}
+
+
   
   
   

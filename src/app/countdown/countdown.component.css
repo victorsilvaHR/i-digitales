@@ -8,7 +8,7 @@
 
 /* Imagen de fondo */
 .background-image {
-  background-image: url('/assets/contador.png'); /* Asegúrate que esté bien la ruta */
+  background-image: url('/assets/A&G/contador.png'); /* Asegúrate que esté bien la ruta */
   background-size: cover;
   background-position: center;
   width: 100%;

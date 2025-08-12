@@ -1,0 +1,220 @@
+.nombres {
+  font-size: 30px;
+  margin-top: 20px;
+  font-style: italic;
+  font-family: 'Lora', serif;
+  font-weight: 300;
+}
+
+.fecha {
+    margin-top: 20px;
+}
+
+.seccion-imagen {
+  width: 100%;
+  overflow: hidden;
+}
+
+.imagen-superior {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Texto centrado general */
+.text-center {
+  text-align: center;
+}
+
+/* Imagen de fecha */
+.frace {
+  display: block;
+  width: 100vw;
+  height: 11vh;
+  object-fit: cover;
+  margin-top: 24px;
+}
+
+/* Contenedor Lugar */
+.contenedor-lugar {
+  text-align: center;
+  margin: 40px auto;
+  padding: 10px;
+  max-width: 600px;
+  margin-top: 1%;
+}
+
+.contenedor-lugar p {
+  margin: 10px 0;
+}
+
+/* Tipografías y estilos de texto */
+.raleway {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+
+.donde {
+  font-size: 20px;
+  margin-top: 2em;
+}
+
+.jardin {
+  font-size: 40px;
+  margin-bottom: -9px;
+}
+
+.tangerine {
+  font-family: 'Tangerine', cursive;
+  font-size: 47px;
+  color: black;
+}
+
+.direccion {
+  margin-top: 7px;
+}
+
+/* Botones */
+.btn-ver-mapa,
+.btn-ejemplo,
+.btn-mesa {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #697960;
+  color: white;
+  margin-top: 12px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+/* Contenedor dress code */
+.contenedor-dresscode {
+  text-align: center;
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 600px;
+  margin-top: -39px;
+
+}
+
+/* Texto dentro dress code */
+.dress {
+  margin-top: 60px;
+  font-size: 30px;
+}
+
+
+.blanco {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.itinerario {
+  width: 100%;
+  padding: 30px 20px;
+  background-color: #f9f9f9; /* Fondo claro elegante */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  margin-top: 30px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.titulo-itinerario {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.evento {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.hora {
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+
+
+
+.imagen-regalo {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px auto; /* Centrada con espacio abajo */
+}
+.play-button {
+  position: fixed;
+  bottom: 30%;         /* Ajustado para subir el botón */
+  right: 20px;
+  z-index: 9999;
+  background-color: black; /* Color nuevo */
+  border: none;
+  color: white;
+  /* border-radius: 50%;    Botón redondo */
+  width: 40px;           /* Tamaño grande y consistente */
+  height: 40px;
+  font-size: 24px;
+  cursor: pointer;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Nueva sombra */
+}
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+
+}
+
+.video-container video {
+    margin-top: -20px;
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.imagenes-dresscode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.img-dress {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Tamaño para la imagen de hombres */
+.hombres-img {
+  max-width: 180px;
+  height: 192px;
+
+}
+
+/* Tamaño más grande para la imagen de mujeres */
+.mujeres-img {
+  max-width: 350px;
+}
+
+
+
+

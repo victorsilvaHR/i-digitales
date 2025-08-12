@@ -1,0 +1,106 @@
+<div class="seccion-imagen">
+  <img src="assets/inicio.jpg" alt="noviosPrueba" class="imagen-superior" />
+</div>
+<button class="play-button" *ngIf="showButton" (click)="togglePlay()">
+  <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+</button>
+<audio #audio>
+  <source src="assets/cancion1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="text-center">
+
+<div class="nombres ">
+    <p > Ivan Juarez & Zabdi Palomares</p>
+</div>
+
+  <div class="fecha raleway ">
+    <p>RESERVA LA FECHA</p>
+    <p>23/Agosto/2025</p>
+  </div>
+
+  <div class="contenedor-lugar">
+    <p class="raleway donde">DONDE</p>
+    <p class="jardin raleway">Fraccionamiento <br> La Florida 2</p>
+    <p class="direccion raleway">
+      Privada de Melisa 4B.
+    </p>
+    <a href="https://maps.app.goo.gl/MVRmUbcazh6v5mpT7?g_st=iw" target="_blank" class="btn-ver-mapa">VER MAPA</a>
+  </div>
+
+<div id="carruselFotos" class="carousel slide" data-bs-ride="carousel">
+  <!-- Indicadores -->
+  <div class="carousel-indicators">
+    <button *ngFor="let foto of fotos; let i = index"
+            type="button"
+            data-bs-target="#carruselFotos"
+            [attr.data-bs-slide-to]="i"
+            [ngClass]="{ 'active': i === 0 }"
+            [attr.aria-current]="i === 0 ? 'true' : null"
+            [attr.aria-label]="'Slide ' + (i + 1)">
+    </button>
+  </div>
+
+  <!-- Slides -->
+  <div class="carousel-inner">
+    <div *ngFor="let foto of fotos; let i = index" 
+         class="carousel-item" 
+         [ngClass]="{ 'active': i === 0 }">
+      <img [src]="'assets/' + foto" class="d-block w-100" alt="Foto {{ i + 1 }}">
+    </div>
+  </div>
+</div>
+
+
+<div class="contenedor-dresscode text-center">
+  <p class="raleway dress">Dress Code</p>
+  <p class="raleway blanco">Reserva el blanco para la novia</p>
+  <p class="raleway cocktail">Formal Casual</p>
+
+<div class="imagenes-dresscode">
+  <img src="assets/hombres.jpg" alt="Hombres" class="img-dress hombres-img" />
+  <img src="assets/mujeres.jpg" alt="Mujeres" class="img-dress mujeres-img" />
+</div>
+</div>
+
+
+
+<div class="itinerario raleway">
+  <p class="titulo-itinerario">ITINERARIO</p>
+  <div class="evento">
+    <span class="hora">15:00 hrs</span> <span class="detalle">Recepción</span>
+  </div>
+  <div class="evento">
+    <span class="hora">16:00 hrs</span> <span class="detalle">Comida</span>
+  </div>
+  <div class="evento">
+    <span class="hora">17:00 hrs</span> <span class="detalle">Baile</span>
+  </div>
+</div>
+
+
+ <div class="donde raleway">
+  <img src="assets/regalo.png" alt="Regalo" class="imagen-regalo">
+  <p>No contamos con mesa de regalos oficial.</p>
+  <p>Todos los presentes son bienvenidos.</p>        
+</div>
+
+<div class="video-container">
+  <video controls>
+    <source src="assets/video.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
