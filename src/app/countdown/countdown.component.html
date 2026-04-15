@@ -1,7 +1,7 @@
 <div class="countdown-wrapper">
   <div class="background-image">
     <div class="countdown-overlay">
-      <div class="countdown-container">
+      <div class="countdown-container" *ngIf="!isToday; else bigDay">
         <div class="countdown-box">
           <div class="countdown-number">{{ days }}</div>
           <div class="countdown-label">Días</div>
@@ -19,6 +19,16 @@
           <div class="countdown-label">Seg</div>
         </div>
       </div>
+
+      <!-- 🔹 Mensaje especial -->
+   <ng-template #bigDay>
+ <div class="gran-dia-wrapper">
+  <h1 class="gran-dia">¡HOY ES EL GRAN DÍA!</h1>
+  <p class="gran-dia-subtitle">¿Están listos para acompañarnos?</p>
+</div>
+
+</ng-template>
+
     </div>
   </div>
 </div>

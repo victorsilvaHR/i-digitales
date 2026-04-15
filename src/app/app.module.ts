@@ -15,6 +15,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InvIvanComponent } from './inv-ivan/inv-ivan.component';
+import { MarioComponent } from './mario/mario.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { InvIvanComponent } from './inv-ivan/inv-ivan.component';
     LoginComponent,
     RegistroComponent,
     UsuariosComponent,
-    InvIvanComponent
+    InvIvanComponent,
+    MarioComponent
   ],
   imports: [
     BrowserModule,

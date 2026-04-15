@@ -14,7 +14,7 @@ export class InvIvanComponent implements OnInit, AfterViewInit {
 
   constructor() {
     for (let i = 1; i <= 11; i++) {
-      this.fotos.push(`foto${i}.jpg`);
+      this.fotos.push(`ifoto${i}.jpg`);
     }
   }
 

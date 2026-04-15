@@ -9,6 +9,7 @@ import { DemoComponent } from './demo/demo.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './servicios/guard.service';
 import { InvIvanComponent } from './inv-ivan/inv-ivan.component';
+import { MarioComponent } from './mario/mario.component';
 
 const routes: Routes = [
   { path:'home', component: HomeComponent, canActivate: [AuthGuard] },
@@ -20,8 +21,10 @@ const routes: Routes = [
   { path: 'A&G/:eventoId/:invitacionId', component: DemoComponent },
   { path:'login', component: LoginComponent },
   { path: 'Boda/I&Z', component: InvIvanComponent },
+  { path: 'mario', component: MarioComponent },
   { path:'', component: LoginComponent },
   { path:'**', component: LoginComponent },
+
 
 ];
 

@@ -60,6 +60,33 @@
   margin-top: 5px;
   text-shadow: 1px 1px 3px #000;
 }
+.gran-dia-wrapper {
+  display: flex;               /* activa flexbox */
+  flex-direction: column;      /* apila los elementos verticalmente */
+  justify-content: center;     /* centra verticalmente */
+  align-items: center;         /* centra horizontalmente */
+  height: 100%;                /* ocupa todo el contenedor del overlay */
+  text-align: center;          /* asegura que el texto esté centrado */
+  gap: 10px;                   /* espacio entre h1 y p */
+}
+
+.gran-dia {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+  font-family: 'Georgia', serif;
+  margin: 0;
+  margin-right: 20px;}
+
+.gran-dia-subtitle {
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-family: 'Georgia', serif;
+  margin: 0;
+  margin-left: 120px;
+}
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
@@ -78,5 +105,13 @@
 
   .countdown-label {
     font-size: 0.7rem;
+  }
+   .gran-dia {
+    font-size: 1.6rem;
+  }
+  .gran-dia-subtitle {
+    font-size: 1rem;
+    margin-right: 217px;
+
   }
 }

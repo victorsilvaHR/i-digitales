@@ -1,0 +1,101 @@
+<div class="container">
+<div class="seccion-imagen">
+  <img src="assets/mario.jpg" alt="noviosPrueba" class="imagen-superior" />
+</div>
+<button class="play-button" *ngIf="showButton" (click)="togglePlay()">
+  <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+</button>
+
+<audio #audio 
+       preload="auto" 
+       style="display: none;" 
+       (ended)="isPlaying = false">
+  <source src="assets/mario.mp3" type="audio/mpeg">
+</audio>
+
+<div class="text-center">
+  <div class="fecha raleway ">
+  </div>
+
+  <div class="contenedor-lugar">
+    <p class="raleway donde">DONDE</p>
+    <p class="jardin raleway">Alboreto Recidencial<br></p> 
+     <p class="direccion raleway">
+        Anunciarse al llegar
+    </p>
+    <a href="https://www.google.com/local/place/fid/0x85cd8b6bc11581ab:0x647298b4655f6d70/photosphere?iu=https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid%3DE8i9hu92hS9oOuquA6t-8w%26cb_client%3Dsearch.gws-prod.gps%26yaw%3D61.407616%26pitch%3D0%26thumbfov%3D100%26w%3D0%26h%3D0&ik=CAISFkU4aTlodTkyaFM5b091cXVBNnQtOHc%3D&sa=X&sqi=2&ved=2ahUKEwiBj-7Ftu6TAxUA_8kDHX-2EngQpx96BAgZEBI" 
+    target="_blank" class="btn-ver-mapa">VER MAPA</a>
+  </div>
+
+<div class="contenedor-lugar">
+  <p class="confirmacion">Tematica VAQUERA</p>
+<p class="confirmacion">Confirma tu asistencia</p>
+<div class="confirmation-container raleway">
+  <div class="confirmation-box">
+    <!-- Sección que se oculta al confirmar -->
+    <div *ngIf="!confirmado" class="text-center">
+      <p class="reserva">Tenemos reservado para ti</p> 
+      <p class="pases"><strong>{{ invitacion.noInvitados }}</strong> pases</p>
+      <p class="evento">Evento exclusivo para adultos</p>
+
+<div class="select-wrapper">
+  <select
+    [ngModel]="body.numeroInvitados"
+    (ngModelChange)="onSeleccionarInvitado($event)"
+    name="numeroInvitados"
+    required
+  >
+    <option [ngValue]="null" disabled selected>
+      Confirma el número de invitados
+    </option>
+    <option [ngValue]="0">No podré asistir</option>
+    <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
+      {{ opcion }}
+    </option>
+  </select>
+</div>
+
+
+
+
+      <p class="previo">Previo al 22 de Mayo</p>
+      <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">ENVIAR</button>
+    </div>
+
+    <!-- Sección que se muestra al confirmar -->
+    <div *ngIf="confirmado" class="text-center mt-4">
+      <p class="pases">Tus pases confirmados son: <br>
+        <strong>{{ invConfirmados }}</strong>
+      </p>
+    </div>
+  </div>
+</div> 
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -10,8 +10,9 @@ export class CountdownComponent implements OnInit, OnDestroy {
   hours: number = 0;
   minutes: number = 0;
   seconds: number = 0;
-  targetDate: Date = new Date('2025-10-18T00:00:00'); // Cambia esto a tu fecha objetivo
+  targetDate: Date = new Date('2025-10-18T00:00:00'); // tu fecha objetivo
   private intervalId: any;
+  isToday: boolean = false; // 🔹 para mostrar el mensaje
 
   ngOnInit() {
     this.updateCountdown();
@@ -28,6 +29,14 @@ export class CountdownComponent implements OnInit, OnDestroy {
     const currentTime = new Date().getTime();
     const targetTime = this.targetDate.getTime();
     const timeDifference = targetTime - currentTime;
+
+    if (timeDifference <= 0) {
+      // 🔹 Cuando ya sea la fecha
+      this.isToday = true;
+      this.days = this.hours = this.minutes = this.seconds = 0;
+      clearInterval(this.intervalId); // detener el contador
+      return;
+    }
 
     this.days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     this.hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
