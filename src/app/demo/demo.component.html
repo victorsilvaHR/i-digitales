@@ -1,4 +1,4 @@
-<div class="seccion-imagen">
+<!-- <div class="seccion-imagen">
   <img src="assets/A&G/g&b.jpg" alt="noviosPrueba" class="imagen-superior" />
 </div>
 
@@ -76,7 +76,6 @@
   </div>
 
   <div id="carruselFotos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-    <!-- Indicadores -->
     <div class="carousel-indicators">
       <button *ngFor="let i of fotosCarrusel2; let idx = index"
               type="button"
@@ -88,7 +87,6 @@
       </button>
     </div>
 
-    <!-- Imágenes -->
   <div id="carouselFotos2" class="carousel-inner">
   <div *ngFor="let foto of fotosCarrusel2; let i = index" class="carousel-item" [class.active]="i === 0">
     <img [src]="foto" class="d-block w-100" [alt]="'DS ' + (i + 1)">
@@ -97,10 +95,8 @@
 
   </div>
 
-<!-- CONTENEDOR PRINCIPAL -->
 <div class="confirmation-container raleway">
   <div class="confirmation-box">
-    <!-- Sección que se oculta al confirmar -->
     <div *ngIf="!confirmado" class="text-center">
       <p class="reserva">Tenemos reservado para ti</p> 
       <p class="pases"><strong>{{ invitacion.noInvitados }}</strong> pases</p>
@@ -126,16 +122,14 @@
       <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">ENVIAR</button>
     </div>
 
-    <!-- Sección que se muestra al confirmar -->
     <div *ngIf="confirmado" class="text-center mt-4">
       <p class="pases">Tus pases confirmados son: <br>
         <strong>{{ invConfirmados }}</strong>
       </p>
     </div>
-  </div> <!-- /.confirmation-box -->
-</div> <!-- /.confirmation-container -->
+  </div> 
+</div> 
 
-<!-- NUEVA SECCIÓN DE HOSPEDAJE Y MENSAJE FINAL -->
 <div class="extras-container raleway text-center">
   <div class="tarjeta">
     <p class="hospedaje mb-3">Recomendaciones de hospedaje</p>
@@ -150,7 +144,6 @@
   </div>
 </div>
 
-  <!-- Modal de advertencia -->
     <div class="modal fade" id="modalAdvertencia" tabindex="-1" aria-labelledby="modalAdvertenciaLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered text-center">
         <div class="modal-content">
@@ -166,7 +159,6 @@
       </div>
     </div>
 
-    <!-- Modal de confirmación -->
     <div class="modal fade" id="modalGracias" tabindex="-1" aria-labelledby="modalGraciasLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered text-center">
         <div class="modal-content">
@@ -182,7 +174,6 @@
       </div>
     </div>
 
-    <!-- Modal de confirmación de no asistencia -->
 <div class="modal fade" id="modalConfirmacionNoAsistencia" tabindex="-1" aria-labelledby="modalConfirmacionNoAsistenciaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content text-center">
@@ -200,5 +191,113 @@
     </div>
   </div>
 </div>
+
+ -->
+<div class="container">
+<div class="seccion-imagen">
+  <img src="assets/mario.jpg" alt="noviosPrueba" class="imagen-superior" />
+</div>
+<button class="play-button" *ngIf="showButton" (click)="togglePlay()">
+  <i class="fa" [ngClass]="isPlaying ? 'fa-pause' : 'fa-play'"></i>
+</button>
+
+<audio #audio 
+       preload="auto" 
+       style="display: none;" 
+       (ended)="isPlaying = false">
+  <source src="assets/mario.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="text-center">
+  <div class="fecha raleway ">
+  </div>
+
+  <div class="contenedor-lugar">
+<p class="titulo-fiesta raleway">ACOMPAÑAME A MI PEDA</p>
+    <p class="raleway donde">DONDE</p>
+
+    <p class="jardin raleway">Alboreto Recidencial<br></p> 
+     <p class="direccion raleway">
+        Anunciarse al llegar
+    </p>
+    <a 
+  href="https://www.google.com/maps/search/?api=1&query=Alboreto+Residencial"
+  target="_blank" 
+  class="btn-ver-mapa">
+  VER MAPA
+</a>
+  </div>
+
+<div class="contenedor-lugar">
+  <p class="confirmacion">Tematica VAQUERA</p>
+<p class="confirmacion">Confirma tu asistencia</p>
+<div class="confirmation-container raleway">
+  <div class="confirmation-box">
+    <!-- Sección que se oculta al confirmar -->
+    <div *ngIf="!confirmado" class="text-center">
+      <p class="reserva">Tenemos reservado para ti</p> 
+      <p class="pases"><strong>{{ invitacion.noInvitados }}</strong> pases</p>
+      <p class="evento">Evento exclusivo para adultos</p>
+
+<div class="select-wrapper">
+  <select
+    [ngModel]="body.numeroInvitados"
+    (ngModelChange)="onSeleccionarInvitado($event)"
+    name="numeroInvitados"
+    required
+  >
+    <option [ngValue]="null" disabled selected>
+      Confirma el número de invitados
+    </option>
+    <option [ngValue]="0">No podré asistir</option>
+    <option *ngFor="let opcion of numeroOpciones" [ngValue]="opcion">
+      {{ opcion }}
+    </option>
+  </select>
+</div>
+
+
+
+
+      <p class="previo">Previo al 22 de Mayo</p>
+      <button class="btn-confirmar mt-3" type="button" (click)="confirmar()">ENVIAR</button>
+    </div>
+
+    <!-- Sección que se muestra al confirmar -->
+    <div *ngIf="confirmado" class="text-center mt-4">
+      <p class="pases">Tus pases confirmados son: <br>
+        <strong>{{ invConfirmados }}</strong>
+      </p>
+    </div>
+  </div>
+</div> 
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

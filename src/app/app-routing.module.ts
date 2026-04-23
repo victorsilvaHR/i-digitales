@@ -18,7 +18,7 @@ const routes: Routes = [
   { path:'eventos', component: EventoComponent , canActivate: [AuthGuard]  },
   { path:'usuarios', component: UsuariosComponent ,  canActivate: [AuthGuard] },
   { path: 'demo', component: DemoComponent },
-  { path: 'A&G/:eventoId/:invitacionId', component: DemoComponent },
+  { path: 'MARIO/:eventoId/:invitacionId', component: DemoComponent },
   { path:'login', component: LoginComponent },
   { path: 'Boda/I&Z', component: InvIvanComponent },
   { path: 'mario', component: MarioComponent },

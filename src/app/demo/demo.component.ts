@@ -19,8 +19,8 @@ export class DemoComponent implements OnInit, AfterViewInit  {
   @Input() noInvitados: number | string = 0;
   @ViewChild('audio', { static: true }) audio!: ElementRef<HTMLAudioElement>;
 
-  isPlaying = false; // Inicia en pausa
-  showButton = true; // Mostrar el botón desde el principio
+  isPlaying = false; 
+  showButton = true;
 
   parametro: string | null;
   eventoId: string | null = null;
@@ -88,7 +88,6 @@ body: { id: string; asistencia: boolean; numeroInvitados: number | null } = {
   }
 
   ngAfterViewInit(): void {
-    // No intentamos reproducir automáticamente para evitar bloqueo del navegador
     this.isPlaying = false;
 
     setTimeout(() => {
@@ -186,9 +185,6 @@ confirmarNoAsistencia() {
 cancelarNoAsistencia() {
   this.body.numeroInvitados = null;
 }
-
-
-
 
 }
 
