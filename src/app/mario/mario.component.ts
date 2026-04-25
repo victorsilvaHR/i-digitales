@@ -13,7 +13,6 @@ import {
 }) // ✅ Este es el decorador que faltaba
 export class MarioComponent implements OnInit, AfterViewInit {
 
-  // static: true permite usarlo desde el ngOnInit si fuera necesario
   @ViewChild('audio', { static: true }) audio!: ElementRef<HTMLAudioElement>;
 
   fotos: string[] = [];
@@ -40,7 +39,6 @@ export class MarioComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Intentamos reproducir al cargar
     this.iniciarAudio();
   }
 
@@ -77,7 +75,6 @@ export class MarioComponent implements OnInit, AfterViewInit {
   onSeleccionarInvitado(valor: number | null) {
     this.body.numeroInvitados = valor;
     
-    // Si el usuario interactúa, aprovechamos para sonar la música
     if (!this.isPlaying) {
       this.iniciarAudio();
     }

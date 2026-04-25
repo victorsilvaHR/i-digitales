@@ -64,13 +64,12 @@ setIdEvento() {
           console.log('Invitación creada exitosamente:', response);
           
           // Obtener el ID de la respuesta (ajusta esto según tu estructura de respuesta)
-          const id = response.data.id; // Asegúrate de que el campo `id` esté disponible en tu respuesta
+     const id = response.data.id;
 
+const urlBase = 'https://invitaciones-31afc.web.app/mario';
+const evento = this.invitacion.idEvento;
 
-          // Concatenar la URL
-          const urlBase = 'https://invitaciones-31afc.web.app/A&G';
-          const evento = this.invitacion.idEvento; 
-          this.urlCompleta = `${urlBase}/${evento}/${id}`;
+this.urlCompleta = `${urlBase}/${evento}/${id}`;
 this.invitacion = {
   nombre: '',
   noInvitados: '', // ← corregido aquí
